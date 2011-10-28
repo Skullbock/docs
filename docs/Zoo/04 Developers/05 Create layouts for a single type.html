@@ -1,0 +1,38 @@
+<h1 class="title">Create layouts for a single type</h1>
+
+<p>This tutorial will walk you through the process of creating a custom layout for a particular type.</p>
+	
+	
+<h2>Getting started</h2>
+
+<div class="box-info">Items that are not categorized, will not show in the alpha index.</div>
+
+<p>Before you read this tutorial, make sure you've read the {doc: create-a-new-layout-with-positions text: tutorial} about creating new layouts with positions.</p>
+
+<p>Creating a custom layout for a particular type is similar to the above mentioned process. Except the layouts will go into <em>/media/zoo/applications/APPLICATION/templates/renderer/item/TYPE/</em>.</p>
+
+
+<h2>Getting into detail</h2>
+
+<p>So lets create a layout <em>demo</em> for a type <em>demo_type</em>. The first step is to create the folder <em>/media/zoo/applications/APPLICATION/templates/renderer/item/demo_type/</em>. We will add all layouts for the type <em>demo_type</em> into this folder. You will need to create the files  <em>positions.xml</em> and <em>metadata.xml</em> as described in the above tutorial. Again, the <em>positions.config</em> is not to be touched ;).</p>
+
+<p>To create the demo layout, just follow the steps in the above tutorial. Basically the only difference is, that the layout will not go into the <em>/item/</em> folder, but into the <em>/item/TYPE/</em> folder and you'll have to create the two xml files.</p>
+
+<pre class="prettyprint"><code class="language-php">$this->renderer->render('item.demo_type.demo', array('view' => $this, 'item' => $this->item));
+</code></pre>
+
+<p>To render the item with the new layout, the call to the render function will have to be modified too. Similar to the code above.</p>
+
+<pre class="prettyprint"><code class="language-php">if ($this->item->type == 'demo_type') :
+
+else:
+
+endif;
+</code></pre>
+
+<p>You can wrap the render function in an <em>if clause</em> to check for an item type, with the code above.</p>
+
+
+<h2>Conclusion</h2>
+
+<p>That's it. Now you can add custom layouts for particular types. That's a neat feature to prevent the layout list in the Joomla administration from bloating itself. It also enables you to limit the selectable layouts for the <em>relateditems</em> element display options.</p>

@@ -1,0 +1,78 @@
+<h1 class="title">Create a new layout with positions</h1>
+
+<p>This tutorial will walk you through the process of creating a new item layout for a template in the ZOO.</p>
+	
+	
+<h2>Getting started</h2>
+
+<p>The item layouts are located in <em>/media/zoo/applications/APPLICATION/templates/renderer/item/</em>.</p>
+
+<p>There are three files located in this folder. The <em>positions.config</em> is not to be touched ;-) It contains the positions configuration. The <em>positions.xml</em> defines the positions associated with a layout. The <em>metadata.xml</em> contains the metadata for a layout.</p>
+
+
+<h2>Getting into detail</h2>
+
+<p>The first step in creating an item layout is to create the item layout php file. Lets call our item layout <em>demo</em>. We therefore create this file <em>/media/zoo/applications/APPLICATION/templates/renderer/item/demo.php</em></p>
+
+<p>In here you'll be rendering the positions. A typical call would look like this:</p>
+
+<pre class="prettyprint"><code class="language-php">&lt;?php if ($this-&gt;checkPosition('MY_POSITION')) : ?&gt;
+&lt;div class=&quot;pos-my-position&quot;&gt;
+&lt;?php echo $this-&gt;renderPosition('MY_POSITION'); ?&gt;
+&lt;/div&gt;
+&lt;?php endif; ?&gt;
+
+</code></pre>
+
+<p>We check for the existence of position content first. We then render the position with <code>$this-&gt;renderPosition('MY_POSITION');</code></p>
+
+<p>In the above example we render the position <em>MY_POSITION</em>. To create that position, we will have to alter the <em>positions.xml</em> file, to include the following code.</p>
+
+<pre class="prettyprint"><code class="language-xml">&lt;positions layout=&quot;demo&quot;&gt;
+
+&lt;position name=&quot;MY_POSITION&quot;&gt;This is my position&lt;/position&gt;
+&lt;/positions&gt;
+</code></pre>
+
+<p>This will tell the layout <em>demo</em> that it has the position with the name <em>MY_POSITION</em>.
+
+<p>Finally we will add the layout meta information. To do that, we modify the <em>metadata.xml</em> file, to include the following:</p>
+
+<pre class="prettyprint"><code class="language-xml">&lt;layout name=&quot;demo&quot;&gt;
+&lt;name&gt;Demo&lt;/name&gt;
+&lt;description&gt;This is my demo layout.&lt;/description&gt;
+&lt;/layout&gt;
+</code></pre>
+
+<p>We can add a name and a description for the layout here.</p> 
+
+
+<h3>RelatedItems Element Layout</h3> 
+
+<p>If we want the layout to be a layout for the RelatedItems element, we will add the attribute <code>type="related"</code> to the layout tag.</p> 
+
+<pre class="prettyprint"><code class="language-xml">&lt;layout name=&quot;demo&quot; type=&quot;related&quot;&gt;
+&lt;name&gt;Demo&lt;/name&gt;
+
+&lt;description&gt;This is my demo layout.&lt;/description&gt;
+&lt;/layout&gt;
+</code></pre> 
+
+
+<h3>GoogleMaps Element Layout</h3>
+
+<p>If we want the layout to be a layout for the GoogleMaps element, we will add the attribute <code>type="googlemaps"</code> to the layout tag.</p> 
+
+<pre class="prettyprint"><code class="language-xml">&lt;layout name=&quot;demo&quot; type=&quot;googlemaps&quot;&gt;
+
+&lt;name&gt;Demo&lt;/name&gt;
+&lt;description&gt;This is my demo layout.&lt;/description&gt;
+&lt;/layout&gt;
+</code></pre>
+
+<p>The popup of the GoogleMaps markers are a bit tricky, so don't put to much content into the layout.</p>
+
+
+<h2>Conclusion</h2>
+
+<p>That's it. Building custom layouts is pretty straight forward. Always have a look at the built-in layouts to get hints at how it is done.</p>

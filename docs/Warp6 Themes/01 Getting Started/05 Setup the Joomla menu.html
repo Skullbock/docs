@@ -1,0 +1,65 @@
+<h1 class="title">Set up the Joomla menu</h1>
+
+<p>This tutorial shows you how to set up the main menu correctly in your Warp based YOOtheme template.</p>
+
+<p>The Logo is actually a simple image tag. In Joomla we are using a <em>Custom HTML</em> module published on the templates logo position for it to display.</p>
+
+
+<h2>Create the menu</h2>
+
+<p>After installation of the template click on <em>Menues » Menu Manager Menu » Add New Menu</em> in the administration menu on top. Give it a name and click on <em>Save & Close</em>.</p>
+
+<p>For more detailed instructions on how to create a menu see the <a href="http://docs.joomla.org/Adding_a_new_menu" target="_blank">official Joomla Documentation.</a></p>
+
+<div class="idea">If you already have created a menu you can skip this step.</div>
+
+<p>You can now assign menu items to the menu. Click on <em>Menues » YOUR MENU » Add New Menu Item</em></p>
+
+<p>For more detailed instructions on how to create a menu item see the <a href="http://docs.joomla.org/Adding_a_new_menu_item" target="_blank">official Joomla Documentation.</a></p>
+
+<h2>Assign the menu as Main Navigation</h2>
+
+<p>Before the menu works properly in your YOOtheme template, you have to assign it to a <em>menu</em> module published on the <em>menu</em> position of your template.</p>
+
+<p>To achieve this, click on <em>Extensions » Module Manager » New</em>. Choose <em>Menu</em>. Next publish the module on the menu position of the template.</p>
+
+
+<h2>Menu Styles</h2>
+
+<p>Basically there are two menu styles - <em>Mega</em> and <em>Accordion</em>. The menu will choose its style automatically depending on what position it is published on. The templates <em>menu</em> position will give you the horizontal <em>Mega</em> style, while the <em>sidebar</em> positions will render the menu with the <em>Accordion</em> style.</p>
+
+
+<h2>Dropdown menu columns</h2>
+
+<div class="bfc-o">
+	<img class="align-right" src="../../../_assets/images/warp/dropdown_columns_01.png" alt="Set amount of columns for each menu item's dropdown menu" title="Set amount of columns for each menu item's dropdown menu" />
+
+	<p>The number of columns and the width of columns of a menu item's dropdown menu can be set via its <em>Page Class Suffix</em>. To do that edit the menu item for which you would like to change the amount of columns. On the right hand side, click on <em>Page Display Options</em> button. Set the <em>Page Class Suffix</em> entry to the number of columns you would like to be displayed, i.e. <em>&quot;columns-2&quot;</em>. The same is true for the columns width: Set the width you would like it to have, i.e. <em>&quot;columnwidth-200&quot;</em>. This will set the width of this menu item to 200 px, ignoring the column width, which is set in the template parameters for all dropdown columns.</p></p>
+
+</div>
+
+</div>
+
+
+<h2>Using icons in menu items</h2>
+
+<div class="bfc-o">
+	<img class="align-right" src="../../../_assets/images/warp/menu_icons_01.png" alt="Using icons for menu items" title="Using icons for menu items" />
+
+	<p>If you'd like to display icons for dropdown menu items, just navigate to the desired level 2 menu item of your Main Menu (Menus » Main Menu). On the right hand side you will find a list of parameter categories, i.e. <em>Page Display Options</em>, <em>Link Type Options</em>. Depending on the Menu Item Type there will be a parameter <em>Link Image</em> in one of these parameter categories. I.e. if your Menu Item Type is <em>External Link</em>, you will find the Link Image parameter in <em>Link Type Options</em>.</p>
+</div>
+
+<div class="bfc-o">
+	<img class="align-right" src="../../../_assets/images/warp/menu_icons_02.png" alt="Using icons for menu items" title="Using icons for menu items" />
+
+	<p>Here you can select an image that must be located at <em>images/stories</em> in your Joomla installation directory.</p>
+</div>
+
+
+<h2>Add subtitles to menu items</h2>
+
+<div class="bfc-o">
+	<img class="align-right" src="../../../_assets/images/warp/add_menu_subtitles_02.png" alt="Add subtitles to menu items" title="Add sublines to menu items" style="margin-top: 5px;"/>
+
+	<p>A subtitle can be added to a menu item by simply placing your subtitle text behind two &quot;|&quot; (pipe) characters. Navigate to <em>Menus » Menu Manager</em>. Then, create a new menu item or edit an old one. Place two &quot;|&quot; (pipe) characters behind the titles caption and enter a text for the subtitle.</p>
+</div>

@@ -1,0 +1,117 @@
+<h1 class="title">Extend global template parameters</h1>
+
+<p>This tutorial will walk you through the process of extending global template parameters in the ZOO extension.</p>
+
+
+<h2>Getting started</h2>
+
+<p>All the global template parameters are located in <em>/media/zoo/applications/APPLICATION/templates/TEMPLATE/template.xml</em>.</p>
+
+<p>In general you can include any Joomla parameter types, like <em>text</em>, <em>radio</em>, <em>list</em>, etc.</p>
+
+
+<h2>Getting into detail</h2>
+
+<p>A typical template.xml file might have the following params.</p>
+
+<pre class="prettyprint"><code class="language-xml">&lt;params group=&quot;category&quot;&gt;
+
+	&lt;param name=&quot;show_alpha_index&quot; type=&quot;list&quot; default=&quot;1&quot; label=&quot;Alpha Index&quot; description=&quot;Show/Hide alpha index&quot;&gt;
+		&lt;option value=&quot;0&quot;&gt;Hide&lt;/option&gt;
+
+		&lt;option value=&quot;1&quot;&gt;Show&lt;/option&gt;
+	&lt;/param&gt;
+	&lt;param name=&quot;show_title&quot; type=&quot;radio&quot; default=&quot;1&quot; label=&quot;Title&quot; description=&quot;Show/Hide title&quot;&gt;
+
+		&lt;option value=&quot;0&quot;&gt;Hide&lt;/option&gt;
+		&lt;option value=&quot;1&quot;&gt;Show&lt;/option&gt;
+	&lt;/param&gt;
+	&lt;param name=&quot;show_description&quot; type=&quot;radio&quot; default=&quot;1&quot; label=&quot;Description&quot; description=&quot;Show/Hide description&quot;&gt;
+
+		&lt;option value=&quot;0&quot;&gt;Hide&lt;/option&gt;
+		&lt;option value=&quot;1&quot;&gt;Show&lt;/option&gt;
+	&lt;/param&gt;
+	&lt;param name=&quot;show_image&quot; type=&quot;radio&quot; default=&quot;1&quot; label=&quot;Image&quot; description=&quot;Show/Hide image&quot;&gt;
+
+		&lt;option value=&quot;0&quot;&gt;Hide&lt;/option&gt;
+		&lt;option value=&quot;1&quot;&gt;Show&lt;/option&gt;
+	&lt;/param&gt;
+	&lt;param name=&quot;alignment&quot; type=&quot;list&quot; default=&quot;left&quot; label=&quot;Alignment&quot; description=&quot;You can choose how the image and the content should be aligned.&quot;&gt;
+
+		&lt;option value=&quot;left&quot;&gt;Image Left&lt;/option&gt;
+		&lt;option value=&quot;right&quot;&gt;Image Right&lt;/option&gt;
+		&lt;option value=&quot;center&quot;&gt;All Centered&lt;/option&gt;
+
+	&lt;/param&gt;
+	&lt;param name=&quot;@spacer&quot; type=&quot;spacer&quot; /&gt;
+	&lt;param name=&quot;categories_cols&quot; type=&quot;radio&quot; default=&quot;4&quot; label=&quot;Categories Columns&quot; description=&quot;Set how many columns to use per row.&quot;&gt;
+
+		&lt;option value=&quot;1&quot;&gt;1&lt;/option&gt;
+		&lt;option value=&quot;2&quot;&gt;2&lt;/option&gt;
+		&lt;option value=&quot;3&quot;&gt;3&lt;/option&gt;
+
+		&lt;option value=&quot;4&quot;&gt;4&lt;/option&gt;
+	&lt;/param&gt;
+	&lt;param name=&quot;show_categories_titles&quot; type=&quot;radio&quot; default=&quot;1&quot; label=&quot;Categories Titles&quot; description=&quot;Show/Hide categories titles&quot;&gt;
+
+		&lt;option value=&quot;0&quot;&gt;Hide&lt;/option&gt;
+		&lt;option value=&quot;1&quot;&gt;Show&lt;/option&gt;
+	&lt;/param&gt;
+	&lt;param name=&quot;show_categories_item_count&quot; type=&quot;radio&quot; default=&quot;1&quot; label=&quot;Categories Item Count&quot; description=&quot;Show item count of categories&quot;&gt;
+
+		&lt;option value=&quot;0&quot;&gt;Hide&lt;/option&gt;
+		&lt;option value=&quot;1&quot;&gt;Show&lt;/option&gt;
+	&lt;/param&gt;
+	&lt;param name=&quot;show_categories_descriptions&quot; type=&quot;radio&quot; default=&quot;1&quot; label=&quot;Categories Descriptions&quot; description=&quot;Show/Hide categories descriptions&quot;&gt;
+
+		&lt;option value=&quot;0&quot;&gt;Hide&lt;/option&gt;
+		&lt;option value=&quot;1&quot;&gt;Show&lt;/option&gt;
+	&lt;/param&gt;
+	&lt;param name=&quot;show_categories_images&quot; type=&quot;radio&quot; default=&quot;1&quot; label=&quot;Categories Images&quot; description=&quot;Show/Hide categories images&quot;&gt;
+
+		&lt;option value=&quot;0&quot;&gt;Hide&lt;/option&gt;
+		&lt;option value=&quot;1&quot;&gt;Show&lt;/option&gt;
+	&lt;/param&gt;
+	&lt;param name=&quot;show_sub_categories&quot; type=&quot;radio&quot; default=&quot;1&quot; label=&quot;Sub Categories&quot; description=&quot;Show/Hide sub categories&quot;&gt;
+
+		&lt;option value=&quot;0&quot;&gt;Hide&lt;/option&gt;
+		&lt;option value=&quot;1&quot;&gt;Show&lt;/option&gt;
+	&lt;/param&gt;
+	&lt;param name=&quot;show_sub_categories_item_count&quot; type=&quot;radio&quot; default=&quot;1&quot; label=&quot;Sub Categories Item Count&quot; description=&quot;Show/Hide item count of sub categories&quot;&gt;
+
+		&lt;option value=&quot;0&quot;&gt;Hide&lt;/option&gt;
+		&lt;option value=&quot;1&quot;&gt;Show&lt;/option&gt;
+	&lt;/param&gt;
+	&lt;param name=&quot;@spacer&quot; type=&quot;spacer&quot; /&gt;
+
+	&lt;param name=&quot;items_cols&quot; type=&quot;radio&quot; default=&quot;2&quot; label=&quot;Item Columns&quot; description=&quot;Set how many columns to use per row&quot;&gt;
+		&lt;option value=&quot;1&quot;&gt;1&lt;/option&gt;
+
+		&lt;option value=&quot;2&quot;&gt;2&lt;/option&gt;
+		&lt;option value=&quot;3&quot;&gt;3&lt;/option&gt;
+		&lt;option value=&quot;4&quot;&gt;4&lt;/option&gt;
+
+	&lt;/param&gt;
+	&lt;param name=&quot;items_media_alignment&quot; type=&quot;list&quot; default=&quot;left&quot; label=&quot;Items Media Alignment&quot; description=&quot;You can choose how the media element should be aligned.&quot;&gt;
+
+		&lt;option value=&quot;left&quot;&gt;Left&lt;/option&gt;
+		&lt;option value=&quot;right&quot;&gt;Right&lt;/option&gt;
+		&lt;option value=&quot;center&quot;&gt;Center&lt;/option&gt;
+
+	&lt;/param&gt;
+&lt;/params&gt;
+&lt;params group=&quot;item&quot;&gt;
+	&lt;param name=&quot;item_media_alignment&quot; type=&quot;list&quot; default=&quot;right&quot; label=&quot;Item Media Alignment&quot; description=&quot;You can choose how the media element should be aligned.&quot;&gt;
+
+		&lt;option value=&quot;left&quot;&gt;Left&lt;/option&gt;
+		&lt;option value=&quot;right&quot;&gt;Right&lt;/option&gt;
+		&lt;option value=&quot;center&quot;&gt;Center&lt;/option&gt;
+
+		&lt;option value=&quot;top&quot;&gt;Top&lt;/option&gt;
+	&lt;/param&gt;
+&lt;/params&gt;
+</code></pre>
+
+<p>You may add any parameters you like. They will automatically be converted to global template parameters. Depending on the params group, they will also show in the category and item template parameters.</p>
+
+<p>To retrieve a parameter value in your templates, use <code>$this->params->get('template.PARAM_NAME')</code>. Notice the <em>template.</em> in front of the PARAM_NAME, it tells the parameter object where to look.</p>

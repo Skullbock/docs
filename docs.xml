@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sections>
+  <section alias="warp6-themes" name="Warp6 Themes" folder="Warp6 Themes">
+    <category alias="getting-started" name="Getting Started" folder="01 Getting Started">
+      <doc alias="install-a-joomla-theme" name="Install a Joomla theme" file="01 Install a Joomla theme.html"/>
+      <doc alias="install-a-wordpress-theme" name="Install a Wordpress theme" file="01 Install a Wordpress theme.html"/>
+      <doc alias="install-theme-demo-package" name="Install theme demo package" file="02 Install theme demo package.html"/>
+      <doc alias="theme-settings" name="Theme Settings" file="03 Theme Settings.html"/>
+      <doc alias="setup-the-logo" name="Setup the logo" file="04 Setup the logo.html"/>
+      <doc alias="setup-the-joomla-menu" name="Setup the Joomla menu" file="05 Setup the Joomla menu.html"/>
+      <doc alias="setup-the-wordpress-menu" name="Setup the Wordpress menu" file="05 Setup the Wordpress menu.html"/>
+      <doc alias="setup-the-joomla-modules" name="Setup the Joomla modules" file="06 Setup the Joomla modules.html"/>
+      <doc alias="setup-the-wordpress-widgets" name="Setup the Wordpress widgets" file="06 Setup the Wordpress widgets.html"/>
+      <doc alias="how-to-update" name="How to update" file="07 How to update.html"/>
+    </category>
+    <category alias="customizing" name="Customizing" folder="02 Customizing">
+      <doc alias="how-to-customize" name="How to customize" file="01 How to customize.html"/>
+      <doc alias="directory-structure-explained" name="Directory structure explained" file="02 Directory structure explained.html"/>
+      <doc alias="create-a-new-style" name="Create a new style" file="03 Create a new style.html"/>
+      <doc alias="create-a-new-module-position" name="Create a new module position" file="04 Create a new module position.html"/>
+      <doc alias="create-a-new-module-layout" name="Create a new module layout" file="05 Create a new module layout.html"/>
+      <doc alias="create-a-new-module-style" name="Create a new module style" file="06 Create a new module style.html"/>
+      <doc alias="add-new-assets" name="Add new assets" file="07 Add new assets.html"/>
+      <doc alias="override-system-files" name="Override system files" file="08 Override system files.html"/>
+      <doc alias="create-language-files" name="Create language files" file="09 Create language files.html"/>
+    </category>
+    <category alias="troubleshooting" name="Troubleshooting" folder="03 Troubleshooting">
+      <doc alias="how-to-solve-theme-issues" name="How To Solve Theme Issues" file="01 How To Solve Theme Issues.html"/>
+      <doc alias="js-conflicts" name="JS Conflicts" file="02 JS Conflicts.html"/>
+      <doc alias="permission-issues" name="Permission Issues" file="03 Permission Issues.html"/>
+      <doc alias="installation-issues" name="Installation Issues" file="04 Installation Issues.html"/>
+    </category>
+  </section>
+  <section alias="widgetkit" name="Widgetkit" folder="Widgetkit">
+    <category alias="getting-started" name="Getting Started" folder="01 Getting Started">
+      <doc alias="install-widgetkit" name="Install Widgetkit" file="01 Install Widgetkit.html"/>
+      <doc alias="install-demo-package" name="Install demo package" file="02 Install demo package.html"/>
+      <doc alias="widgetkit-manager" name="Widgetkit Manager" file="03 Widgetkit Manager.html"/>
+      <doc alias="display-widgets" name="Display Widgets" file="04 Display Widgets.html"/>
+      <doc alias="install-bonus-styles" name="Install Bonus Styles" file="05 Install Bonus Styles.html"/>
+      <doc alias="how-to-update-2" name="How to update" file="06 How to update.html"/>
+    </category>
+    <category alias="customizing" name="Customizing" folder="02 Customizing">
+      <doc alias="create-a-style" name="Create a style" file="01 Create a style.html"/>
+    </category>
+    <category alias="troubleshooting" name="Troubleshooting" folder="03 Troubleshooting">
+      <doc alias="how-to-solve-widgetkit-issues" name="How To Solve Widgetkit Issues" file="01 How To Solve Widgetkit Issues.html"/>
+      <doc alias="js-conflicts-2" name="JS conflicts" file="02 JS conflicts.html"/>
+      <doc alias="permission-issues-2" name="Permission Issues" file="03 Permission Issues.html"/>
+    </category>
+  </section>
+  <section alias="zoo" name="Zoo" folder="Zoo">
+    <category alias="getting-started" name="Getting Started" folder="01 Getting Started">
+      <doc alias="install-the-zoo" name="Install the zoo" file="01 Install the zoo.html"/>
+      <doc alias="install-the-demo-package" name="Install the demo package" file="02 Install the demo package.html"/>
+      <doc alias="how-to-update-3" name="How to update" file="03 How to update.html"/>
+      <doc alias="create-a-new-app-instance" name="Create a new app instance" file="04 Create a new app instance.html"/>
+      <doc alias="manage-the-frontpage" name="Manage the Frontpage " file="05 Manage the Frontpage .html"/>
+      <doc alias="create-and-manage-categories" name="Create and manage categories" file="06 Create and manage categories.html"/>
+      <doc alias="create-and-manage-items" name="Create and manage items" file="07 Create and manage items.html"/>
+      <doc alias="create-and-manage-tags" name="Create and manage tags" file="08 Create and manage tags.html"/>
+      <doc alias="how-to-create-a-joomla-menu-link" name="How to create a Joomla menu link" file="09 How to create a Joomla menu link.html"/>
+      <doc alias="how-to-install-another-language" name="How to install another language" file="10 How to install another language.html"/>
+      <doc alias="delete-an-app-instance" name="Delete an app instance " file="11 Delete an app instance .html"/>
+      <doc alias="install-a-new-app" name="Install a new app" file="12 Install a new app.html"/>
+      <doc alias="how-to-uninstall-an-app" name="How to uninstall an app" file="13 How to uninstall an app.html"/>
+      <doc alias="set-up-the-zoo-search" name="Set up the ZOO search" file="14 Set up the ZOO search.html"/>
+      <doc alias="set-up-the-zoo-item-module" name="Set up the ZOO item module " file="15 Set up the ZOO item module .html"/>
+      <doc alias="set-up-the-zoo-tag-module" name="Set up the ZOO tag module" file="16 Set up the ZOO tag module.html"/>
+      <doc alias="create-and-manage-comments" name="Create and manage comments" file="17 Create and manage comments.html"/>
+      <doc alias="set-up-facebook-connect" name="Set up Facebook connect" file="18 Set up Facebook connect.html"/>
+      <doc alias="set-up-twitter-connect" name="Set up Twitter connect" file="19 Set up Twitter connect.html"/>
+      <doc alias="set-up-the-zoo-comment-module" name="Set up the ZOO comment module" file="20 Set up the ZOO comment module.html"/>
+    </category>
+    <category alias="advanced" name="Advanced" folder="02 Advanced">
+      <doc alias="extend-pre-build-types" name="Extend pre-build types" file="01 Extend pre-build types.html"/>
+      <doc alias="assign-elements-to-layout-positions" name="Assign elements to layout positions" file="02 Assign elements to layout positions.html"/>
+      <doc alias="create-new-types" name="Create new types" file="03 Create new types.html"/>
+      <doc alias="set-up-frontend-submission" name="Set up Frontend Submission" file="04 Set up Frontend Submission.html"/>
+      <doc alias="how-to-use-the-csv-importer" name="How to use the CSV importer" file="05 How to use the CSV importer.html"/>
+      <doc alias="use-the-shortcode-plugin" name="Use the Shortcode Plugin" file="06 Use the Shortcode Plugin.html"/>
+    </category>
+    <category alias="elements" name="Elements" folder="03 Elements">
+      <doc alias="addthis-element" name="Addthis Element" file="Addthis Element.html"/>
+      <doc alias="checkbox-element" name="Checkbox Element" file="Checkbox Element.html"/>
+      <doc alias="country-element" name="Country Element" file="Country Element.html"/>
+      <doc alias="date-element" name="Date Element" file="Date Element.html"/>
+      <doc alias="disqus-element" name="Disqus Element" file="Disqus Element.html"/>
+      <doc alias="download-element" name="Download Element" file="Download Element.html"/>
+      <doc alias="email-element" name="Email Element" file="Email Element.html"/>
+      <doc alias="flickr-element" name="Flickr Element" file="Flickr Element.html"/>
+      <doc alias="gallery-element" name="Gallery Element" file="Gallery Element.html"/>
+      <doc alias="google-maps-element" name="Google Maps Element" file="Google Maps Element.html"/>
+      <doc alias="image-element" name="Image Element" file="Image Element.html"/>
+      <doc alias="intensedebate-element" name="Intensedebate Element" file="Intensedebate Element.html"/>
+      <doc alias="joomla-module-element" name="Joomla Module Element" file="Joomla Module Element.html"/>
+      <doc alias="link-element" name="Link Element" file="Link Element.html"/>
+      <doc alias="media-element" name="Media Element" file="Media Element.html"/>
+      <doc alias="radio-element" name="Radio Element" file="Radio Element.html"/>
+      <doc alias="rating-element" name="Rating Element" file="Rating Element.html"/>
+      <doc alias="related-categories-element" name="Related Categories Element" file="Related Categories Element.html"/>
+      <doc alias="related-items-element" name="Related Items Element" file="Related Items Element.html"/>
+      <doc alias="select-element" name="Select Element" file="Select Element.html"/>
+      <doc alias="social-bookmarks-element" name="Social Bookmarks Element" file="Social Bookmarks Element.html"/>
+      <doc alias="social-buttons-element" name="Social Buttons Element" file="Social Buttons Element.html"/>
+      <doc alias="text-element" name="Text Element" file="Text Element.html"/>
+      <doc alias="textarea-element" name="Textarea Element" file="Textarea Element.html"/>
+      <doc alias="widgetkit-element" name="Widgetkit Element" file="Widgetkit Element.html"/>
+    </category>
+    <category alias="developers" name="Developers" folder="04 Developers">
+      <doc alias="create-a-new-app" name="Create a new app" file="01 Create a new app.html"/>
+      <doc alias="create-a-new-template" name="Create a new template" file="02 Create a new template.html"/>
+      <doc alias="create-a-custom-element" name="Create a custom element" file="03 Create a custom element.html"/>
+      <doc alias="create-a-new-layout-with-positions" name="Create a new layout with positions" file="04 Create a new layout with positions.html"/>
+      <doc alias="create-layouts-for-a-single-type" name="Create layouts for a single type" file="05 Create layouts for a single type.html"/>
+      <doc alias="create-a-new-element-renderer" name="Create a new element renderer" file="06 Create a new element renderer.html"/>
+      <doc alias="extend-content-parameters" name="Extend content parameters" file="07 Extend content parameters.html"/>
+      <doc alias="extend-global-template-parameters" name="Extend global template parameters" file="08 Extend global template parameters.html"/>
+      <doc alias="extend-the-alpha-index" name="Extend the alpha index" file="09 Extend the alpha index.html"/>
+      <doc alias="create-a-new-zoo-module-layout" name="Create a new ZOO module layout" file="10 Create a new ZOO module layout.html"/>
+      <doc alias="how-to-change-the-app-icon" name="How to change the app icon" file="11 How to change the app icon.html"/>
+      <doc alias="create-a-new-zoo-module-theme" name="Create a new ZOO module theme" file="12 Create a new ZOO module theme.html"/>
+      <doc alias="accessing-element-data" name="Accessing element data" file="13 Accessing element data.html"/>
+      <doc alias="update-templates-zoo-2122" name="Update templates ZOO 2.1 » 2.2" file="14 Update templates ZOO 21_22.html"/>
+      <doc alias="using-zoo-events" name="Using ZOO events" file="15 Using ZOO events.html"/>
+    </category>
+    <category alias="troubleshooting" name="Troubleshooting" folder="05 Troubleshooting">
+      <doc alias="how-to-solve-zoo-issues" name="How To Solve Zoo Issues" file="01 How To Solve Zoo Issues.html"/>
+      <doc alias="js-conflicts-3" name="JS Conflicts" file="02 JS Conflicts.html"/>
+      <doc alias="permission-issues-3" name="Permission Issues" file="03 Permission Issues.html"/>
+      <doc alias="installation-issues-2" name="Installation Issues" file="04 Installation Issues.html"/>
+    </category>
+  </section>
+</sections>

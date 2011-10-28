@@ -1,0 +1,83 @@
+<h1 class="title">Create a new app</h1>
+
+<p>This tutorial will walk you through the process of creating a new application for the ZOO extension. We will create a <em>Hello world</em> application.</p>
+
+
+<h2>Getting started</h2>
+
+<p>All applications, existing and future, are located in <em>/media/zoo/applications/APPLICATION</em>. Have a look at existing applications to get a feeling for the folder structure of an application.</p>
+
+<p>The base directory will contain 3-4 files. Two of them are the image files of the app icon.</p>
+
+<span class="box-warning">If you create a new app you should create a new icon for it. You are not allowed to use the app icons of the pre-installed YOOtheme apps for your own, newly created app. See {doc: how-to-change-the-app-icon text: this tutorial} on how to change the app icon.</span>
+
+<p>Furthermore we have the <em>application.xml</em> that contains the applications metadata, configuration- and content parameters. And last but not least, there is the <em>application.php</em>. That file inherits from the </m>Application</em> class and controlls an applications custom workflow.</p>
+
+<p>Next to the files there several folders in the applications base directory.</p>
+
+<p>The <em>config</em> folder contains configuration files. If your application is supposed to use the comments system, you'll have to include the comments.xml here. If your application needs other alpha index options, you can modify the alpha_index.xml here.</p>
+
+<p>The <em>elements</em> folder contains custom elements. Click {doc: create-a-custom-element text: here} for a tutorial on how to build a custom element.</p>
+
+<p>The <em>language</em> folder contains application specific language files.</p>
+
+<p>The <em>templates</em> folder contains the applications templates. Click {doc: create-a-new-template text: here} for a tutorial on how to build a custom template.</p>
+
+<p>The <em>types</em> folder contains the configuration for the applications types. Click {doc: create-new-types text: here} for a tutorial on how to build your own type.</p>
+
+
+<h2>Getting into detail</h2>
+
+<p>We will create a folder called <em>/media/zoo/applications/helloworld/</em></p>
+
+<p>We then add the application.xml file. It should contain an xml structure something like this:</p>
+
+<pre class="prettyprint"><code class="language-xml">	&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+	&lt;application&gt;
+		&lt;name&gt;Hello World!&lt;/name&gt;
+
+		&lt;group&gt;helloworld&lt;/group&gt;
+		&lt;version&gt;2.0.0&lt;/version&gt;
+		&lt;creationDate&gt;April 2010&lt;/creationDate&gt;
+		&lt;author&gt;John Doe&lt;/author&gt;
+
+		&lt;authorEmail&gt;john @ doe.com&lt;/authorEmail&gt;
+		&lt;authorUrl&gt;www.johndoe.com&lt;/authorUrl&gt;
+		&lt;copyright&gt;YOUR COPYRIGHT DISCLAIMER&lt;/copyright&gt;
+		&lt;license&gt;&lt;/license&gt;
+
+		&lt;description&gt;This is our hello world app!&lt;/description&gt;
+		&lt;params group=&quot;application-config&quot;&gt;
+		&lt;/params&gt;
+		&lt;params group=&quot;category-config&quot;&gt;
+		&lt;/params&gt;
+
+		&lt;params group=&quot;item-config&quot;&gt;
+		&lt;/params&gt;
+		&lt;params group=&quot;application-content&quot;&gt;
+		&lt;/params&gt;
+		&lt;params group=&quot;category-content&quot;&gt;
+
+		&lt;/params&gt;
+		&lt;params group=&quot;item-content&quot;&gt;
+		&lt;/params&gt;
+	&lt;/application&gt;
+</code></pre>
+
+<p>As stated above, this file contains the applications metadata and parameters. For an explanation of the parameters click {doc: extend-content-parameters text: here}. The metadata should be self-explanatory. The <em>group</em> tag is important, it needs to be the name of the applications folder.</p>
+
+<p>The next step will be to add an application.php file. Our <em>Hello World</em> application will have no extra workflow and therefore the file will contain an empty class.</p>
+
+<pre class="prettyprint"><code class="language-php">	class HelloworldApplication extends Application {}
+</code></pre>
+
+<p>The class name will consist of the applications group concatinated by the word <em>Application</em>.</p>
+
+<p>Our <em>Hello World</em> application will need an icon, we therefore will design an icon and call the file <em>application.png</em>. Click {doc: how-to-change-the-app-icon text: here} for a tutorial on how to change the app icon.</p>
+
+<p>The only thing left to do, is to create our own templates. Click {doc: create-a-custom-element text: here} for a tutorial on how to build a custom template.</p>
+
+
+<h2>Conclusion</h2>
+
+<p>This tutorial walked you through the process of creating your own application. If your application needs a special workflow. Have a look at the <em>Application</em> base class. It contains the default behavior. As always, get inspired through the existing applications.</p>

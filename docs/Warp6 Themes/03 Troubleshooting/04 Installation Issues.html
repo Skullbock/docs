@@ -1,0 +1,25 @@
+<h1 class="title">Installation Issues</h1>
+
+<p>This tutorial shows you how to handle installation issues with your YOOtheme Warp template.</p>
+
+<p>Most of the times installation problems are due to limited resources, e.g. on shared hosting accounts.</p>
+
+<p>Limited resources can be the PHP Maximum Upload Size or the PHP Maximum Execution Time.</p>
+
+<p>To solve these problems you can either allocate more resources to the PHP script, by modifying the php.ini file. Or - being on Joomla - there is another workaround described below.</p>
+
+<h2>Joomla: The install from directory method</h2>
+
+<p>Upload the installation package to your Joomla <em>/tmp</em> directory and then use the Uncompress Tool available in your Hosting Control Panel to unarchive the package. It should have this feature.</p>
+
+<p>This will most likely resolve three problems:</p>
+
+<ul>
+	<li>The problem with the archive itself.</li>
+	<li>The PHP Maximum Upload Size</li>
+	<li>The problem with timeouts on some machines</li>
+</ul>
+
+<p>Please also make sure, that you are using the correct installation package.</p>
+
+<div class="box-info">The Joomla error messages during installation are sometimes misleading. e.g. Joomla claims that it is unable to find the installation package, when it actually wasn't uploaded due to the PHP Maximum Upload Size limit.</div>

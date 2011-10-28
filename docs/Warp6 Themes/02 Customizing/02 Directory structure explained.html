@@ -1,0 +1,42 @@
+<h1 class="title">Directory structure explained</h1>
+
+<p>In this tutorial we explain the directory structure of your YOOtheme Warp template.</p>
+
+<p>The Warp framework has HTML, CSS, JavaScript and PHP helper classes to cover all aspects in theme development. It's really portable since all framework related files are kept in a single place, a folder called <em>warp</em>. This folder resides directly in every theme. There are no dependencies on other components or plugins. Nothing needs to be installed or maintained separately.</p>
+
+<p>Warp separates into three layers. The first layer is the core framework which provides the base CSS, a JavaScript effects library and a collection of PHP helpers. Each part of the core framework is universal and designed to work on every supported system. The second layer is the system depended layer, which provides the individual system implementation needed to integrate with a particular CMS. This layer makes Warp adapt to a certain system to form a consistent API for theme development. The third layer is the theme specific layer, this is where all the individual theme files go. It's the working place where all the themes custom HTML, CSS, JavaScript and images are being stored.</p>
+
+<p>To provide as much flexibility as possible we implemented a special file cascade into Warp. If you include any file like CSS, JS or template PHP files Warp looks successively in specific folders for the files and the first file found will be loaded. Here is the cascade:</p>
+
+	<ul class="bullet">
+		<li>theme folder</li>
+		<li class="odd">specific system folder, for example warp/systems/joomla.1.7</li>
+		<li>warp framework folder</li>
+	</ul>
+	
+<p>This gives you full flexibility to override any important theme related file. In the following we will give a short overview about the most important files if you want to customize a Warp theme.</p>
+
+
+<h2>Template Files</h2>
+
+<p>The main template file <em>/layouts/template.php</em> is the heart of every theme, it provides the complete HTML markup for the base theme layout. This is different from standard Joomla templates or WordPress themes where the index.php is the main template file. Second important file is the <em>/layouts/template.config.php</em> which includes some layout calculations and defines all the themes CSS and JavaScripts.</p>
+
+
+<h2>Modules</h2>
+
+<p>Modules or widgets can be displayed in different styles with additional icons and badges. The <em>/layouts/module.php</em> takes care of displaying all these module variations. Depending on the selected style the module.php loads the right HTML markup from predefined module templates. Further the framework comes with three commonly used module layouts equal, double and stacked, which are used to position modules next or above each other. It's also possible to extend them with your own custom module templates and layouts.</p>
+
+
+<h2>CSS</h2>
+
+<p>The CSS files are divided in three different layers and are placed in their respective folders for theme specific <em>/css</em>, system depended <em>/warp/systems/joomla.1.7/css</em> and framework styles <em>/warp/css</em>. Including these files is really easy because Warp also uses its file helper to locate them across the different folders.</p>
+
+
+<h2>JavaScript</h2>
+
+<p>Warp also provides a library of JavaScript effects used in dropdown and accordion menus, the AJAX search or the mobile theme. The JavaScript files are also structured and stored in their own folders for theme specific <em>/js</em>, system depended <em>/warp/systems/joomla.1.7/js</em> and framework scripts <em>/warp/js</em>. All scripts are configured in a single file <em>/js/template.js</em>. This file is used to enable or disable effects which will be loaded with the theme.</p>
+
+
+<h2>System Markup</h2>
+
+<p>Every system has a set of layouts which defines the HTML markup for the core CMS output. For Joomla these are typically the HTML overrides that are used by the theme to render the content component or modules like the login or search. The Joomla 1.7 files are located in <em>warp/systems/joomla.1.7/layouts</em>. In Wordpress the layouts provide a HTML markup for the different pages like blog frontpage, the archive or a single post. The Wordpress files are located in <em>warp/systems/wordpress.3.0/layouts</em>. To keep things simple, Warp basically uses the same HTML output for all supported systems. Regardless of what you are viewing, articles of a category in Joomla's content component or posts from a category in Wordpress, Warp renders the HTML. This allows to create universal CSS rules which apply for both CMS platforms.</p>

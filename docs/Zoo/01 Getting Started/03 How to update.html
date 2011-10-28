@@ -1,0 +1,59 @@
+<h1 class="title">How to update</h1>
+
+<p>This is a brief instruction on how to update the ZOO extension without uninstalling and reinstalling the component.</p>
+
+
+<h2>Update ZOO component</h2>
+
+<p>Simply choose one of two different distributions of the ZOO. The free ZOO, which includes the <em>Pages</em> and <em>Blog</em> apps and all ZOO modules. Or the ZOO full installion package, including <em>all available apps of the App Bundle</em>, all ZOO modules.</p>
+
+<p>Now follow these steps to update your ZOO:</p>
+
+<ol class="bold">
+	<li>First of all make a backup of your old site (files and database), so you can recover it any time.</li>
+	<li>Download the latest ZOO version (one of the distributions from above).</li>
+	<li>Go to the extensions installer in the Joomla! administration, pick the downloaded ZOO package and click on <em>Upload File & Install</em>.</li>
+</ol>
+
+<p>That's it! Now the ZOO extension, all language files and all bundled modules and plugins are updated to the latest version...</p>
+
+<div class="box-warning">Depending on your installed ZOO 2 distribution the apps, plugins, modules and tools are also updated when updating ZOO. So any modifications to the files (PHP, CSS, Images, etc) may be lost. Therefore we recommend to duplicate an existing app (and rename it) rather than editing the original app. So if you don't use the original apps your custom app will still be untouched during the update process.</div>
+
+<p>When you've finished the update, clear your browser cache and the Joomla cache. To clear the Joomla cache go to the <em>Joomla administration » Tools » Clean Cache</em>.</p>
+
+<div class="box-info">
+	<p>If you are facing this error during installation: &quot;Fatal error: Maximum execution time of 30 seconds exceeded in ..... on line .....&quot; you may try to install the component from a directory:</p>
+
+	<ol class="bold">
+		<li>Download the latest ZOO version and unpack the extension's archive file to a temporary directory on your local hard drive .</li>
+		<li>Using FTP, upload the contents of this directory (including files and subdirectories) to a directory on your server usually the <em>/tmp</em> directory.</li>
+		<li>Go to the extensions installer in the Joomla! administration, in the Install Directory field specify the directory where you have uploaded the files and subdirectories of the package.</li>
+		<li>Click on the Install button and Joomla! will install the contents of the given directory.</li>
+	</ol>
+</div>
+
+<h2>Update ZOO apps</h2>
+
+<p>We recommend updating the apps by updating your ZOO component (see first part of the tutorial) but if you want to update a single app just follow these simple steps:</p>
+
+<ol class="bold">
+	<li>First of all make a backup of your app, so you can recover it at any time.</li>
+	<li>Download the latest version of the app.</li>
+	<li>Go to <em>Components » ZOO » App manager</em> (Tab with gearwheel).</li>
+
+	<li>Select the app package file and click on <em>Install.</em></li>
+</ol>
+
+<div class="box-warning">
+	Be careful, the update will replace any changes you made to the original applications. But it will leave any configuration files untouched (Types and Element Assignments).
+
+	<p>To update types manually open the installation package and goto the types folder of the app (<em>applications/APPNAME/types/</em>) and copy all xml files.</p>
+
+	<p>To update the element assignments manually open the installation package and goto the item renderer folder of each app template (<em>applications/APPNAME/templates/TEMPLATENAME/renderer/item</em>) and copy each positions.config file.</p>
+</div>
+
+<h2>Update ZOO plugins and modules</h2>
+
+<p>The ZOO modules and plugins will be automatically updated when updating the ZOO extension.</p>
+
+<div class="box-info">The modules are located in the folder <em>/additionals</em> in the installation package.</div>

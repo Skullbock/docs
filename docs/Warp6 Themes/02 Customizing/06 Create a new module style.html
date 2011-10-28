@@ -1,0 +1,113 @@
+<h1 class="title">Create a new module style</h1>
+
+<p>This tutorial will take a closer look at the module styles, what they are and how to create a new one.</p>
+
+<h2>Module Styles</h2>
+
+<p>Module Styles define the design and visual rendering of a module. For example you can create different module styles like a red module, a blue module, 
+  one with a box shadow, one without, etc...</p>
+
+<h2>Location</h2>
+
+<p>The module styles are defined in following file: THEMEN_NAME/layouts/module.php.</p>
+
+<div class="box-info">If you create a theme style you want to add some new module styles you can override the default module.php file. 
+  Just copy THEMEN_NAME/layouts/module.php to THEME_NAME/styles/YOUR_STYLE/layouts/module.php.
+</div>
+
+<h2>Styles</h2>
+
+<p>Now let's see how modules.php file work. Open it and take a look at line ~50 to line ~75. Here is an example:</p>
+
+<pre class="prettyprint"><code class="language-php">  // set module template using the style
+  switch ($style) {
+
+     case 'line':
+        $template      = 'default-1';
+        $style         = 'mod-'.$style;
+        $style         .= ($color) ? ' mod-line-'.$color : '';
+        $split_color   = 1;
+        $subtitle      = 1;
+        $title_template = '&lt;h3 class=&quot;title&quot;&gt;%s&lt;/h3&gt;';
+        break;
+
+     case 'dropdown':
+        $template      = 'dropdown';
+        $subtitle      = 1;
+        break;
+
+     case 'raw':
+        $template      = 'raw';
+        break;
+
+     default:
+        $template      = 'default-1';
+        $style         = $suffix;
+        $title_template = '&lt;h3 class=&quot;title&quot;&gt;%s&lt;/h3&gt;';
+  }
+</code></pre>
+
+
+<h2>Definition</h2>
+
+<p>Every case defines a module style. Let's see what the code means:</p>
+
+<h3>case 'line':</h3>
+<p>This is the name of the module style. In Joomla you can load a module using the module class suffix. For example: style-line</p>
+
+<h3>$template = 'default-1';</h3>
+<p>The templates defines the HTML markup you need to create your module style. Learn more about it here.</p>
+
+<h3>$style = 'mod-'.$style;</h3>
+<p>Here we set the CSS class to style the module. For example .mod-line</p>
+
+<h3>$style .= ($color) ? ' mod-line-'.$color : '';</h3>
+<p>If you want to create color variations of your module style you need some additional CSS classes. For example .mod-line-blue</p>
+
+<h3>$split_color = 1;</h3>
+<p>This is only for advanced users. If the first word of you module title should be automatically wrapped with a span element with a CSS class color set this parameter to 1.</p>
+
+<h3>$subtitle = 1;</h3>
+<p>This is only for advanced users. If your module title should support subtitles using the || technique set this parameter to 1.</p>
+
+<h3>$title_template = '&lt;h3 class=&quot;title&quot;&gt;%s&lt;/h3&gt;';</h3>
+<p>Define the HTML markup for the module title.</p>
+
+<h2>How to add a custom module style</h2>
+
+<p>You have two things to do. Define your new module style in the module.php and create some CSS styles for in in the modules.css.</p>
+
+<p>So let's start and add a new case to the module.php. For example we want the a module style to be called box with a module template which contains two div elements:</p>
+  
+<h3>module.php</h3>
+
+<pre class="prettyprint"><code class="language-php">case 'box':
+  $template      = 'default-2';
+  $style         = 'mod-'.$style;
+  $title_template = '&lt;h3 class=&quot;title&quot;&gt;%s&lt;/h3&gt;';
+  break;
+</code></pre>
+
+
+<p>Now let's add some CSS style to the module.css</p>
+  
+<h3>module.css</h3>
+
+<pre class="prettyprint"><code class="language-css">.mod-box {
+  border: 1px solid red;
+  background: white;
+  padding: 15px;
+}
+</code></pre>
+
+
+<p>That's it. Now you can load your new module style in Joomla using the module class suffix style-box.</p>
+
+<p>For WordPress you need one more thing to do. Open THEMENAME/template.xml and add your new module style to the style parameters:</p>
+
+<pre class="prettyprint"><code class="language-xml">&lt;setting name=&quot;style&quot; type=&quot;style&quot; label=&quot;Style&quot; nav_menu=&quot;false&quot;&gt;
+ &lt;option name=&quot;None&quot; value=&quot;&quot; /&gt;
+ &lt;option name=&quot;Line&quot; value=&quot;line&quot; /&gt;
+ &lt;option name=&quot;Box&quot; value=&quot;box&quot; /&gt;
+&lt;/setting&gt;
+</code></pre>

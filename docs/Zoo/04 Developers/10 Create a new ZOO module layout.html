@@ -1,0 +1,94 @@
+<h1 class="title">Create a new ZOO module layout</h1>
+
+<p>This tutorial will walk you through the process of creating a new module layout for the ZOO 2.0 extension. We will show the steps on the basis of the ZOO item module.</p>
+
+
+<h2>Getting started</h2>
+
+<p>All the files for a ZOO module are usually located in <em>/modules/MODULE/</em>.</p>
+
+<p>For the ZOO item module for example the path is <em>/modules/mod_zooitem/</em>.</p>
+
+<p>In the folder <em>/tmpl/</em> all files for the theme are stored. The folder <em>/renderer/item/</em> contains all files for the layouts.</p>
+
+
+<h2>Adding new position to a layout of the ZOO item module</h2>
+
+<p>If you want to customize the item module and add new positions go to <em>modules/mod_zooitem/renderer/item</em> and open positions.xml:</P>
+
+<pre class="prettyprint"><code class="language-xml">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;renderer&gt;
+	&lt;positions layout=&quot;default&quot;&gt;
+		&lt;position name=&quot;media&quot;&gt;Media&lt;/position&gt;
+		&lt;position name=&quot;meta&quot;&gt;Meta&lt;/position&gt;
+
+		&lt;position name=&quot;description&quot;&gt;Description&lt;/position&gt;
+	&lt;/positions&gt;
+&lt;/renderer&gt;
+</code></pre>
+
+<p>Here you can add a new position to the default layout, for example a position called &quot;content&quot;:</p>
+
+<pre class="prettyprint"><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;renderer&gt;
+		&lt;positions layout=&quot;default&quot;&gt;
+		&lt;position name=&quot;media&quot;&gt;Media&lt;/position&gt;
+
+		&lt;position name=&quot;meta&quot;&gt;Meta&lt;/position&gt;
+		&lt;position name=&quot;description&quot;&gt;Description&lt;/position&gt;
+		&lt;position name=&quot;content&quot;&gt;Content&lt;/position&gt;
+
+	&lt;/positions&gt;
+&lt;/renderer&gt;
+</code></pre>
+
+<p>You also have to render the position in the default layout. To do so open default.php in the same folder and add the following code:</p>
+
+<pre class="prettyprint"><code class="language-php">&lt;?php if ($this-&gt;checkPosition('content')) : ?&gt;
+	&lt;div class=&quot;content&quot;&gt;
+		&lt;?php echo $this-&gt;renderPosition('content'); ?&gt;
+
+	&lt;/div&gt;
+&lt;?php endif; ?&gt;
+</code></pre>
+
+
+<h2>Creating a new layout for the ZOO item module</h2>
+
+<p>If you don't want to use the default layout you can create your own one. Open positions.xml in the folder <em>modules/mod_zooitem/renderer/item</em> to add your new layout with new positions. For example:</p>
+
+<pre class="prettyprint"><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+
+&lt;renderer&gt;
+	&lt;positions layout=&quot;default&quot;&gt;
+		&lt;position name=&quot;media&quot;&gt;Media&lt;/position&gt;
+		&lt;position name=&quot;meta&quot;&gt;Meta&lt;/position&gt;
+
+		&lt;position name=&quot;description&quot;&gt;Description&lt;/position&gt;
+		&lt;/positions&gt;
+		&lt;positions layout=&quot;newlayout&quot;&gt;
+		&lt;position name=&quot;header&quot;&gt;Header&lt;/position&gt;
+
+		&lt;position name=&quot;left&quot;&gt;Left&lt;/position&gt;
+	&lt;/positions&gt;
+&lt;/renderer&gt;
+</code></pre>
+
+<p>In this example we added a new layout &quot;newlayout&quot; with the positions: header and left. Next thing to do is to create the layout file called &quot;newlayout.php&quot;. Here is a sample code to render the positions:</p>
+
+<pre class="prettyprint"><code class="language-php">&lt;?php
+// no direct access
+defined('_JEXEC') or die('Restricted access');
+?&gt;
+&lt;?php if ($this-&gt;checkPosition('header')) : ?&gt;
+&lt;div class=&quot;header&quot;&gt;
+	&lt;?php echo $this-&gt;renderPosition('header'); ?&gt;
+&lt;/div&gt;
+&lt;?php endif; ?&gt;
+
+&lt;?php if ($this-&gt;checkPosition('left')) : ?&gt;
+&lt;div class=&quot;left&quot;&gt;
+	&lt;?php echo $this-&gt;renderPosition('left'); ?&gt;
+&lt;/div&gt;
+&lt;?php endif; ?&gt;
+</code></pre>

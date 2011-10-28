@@ -1,0 +1,39 @@
+<h1 class="title">Permission Issues</h1>
+
+<p>This tutorial shows you how to handle permission issues within ZOO.</p>
+
+<div class="box-hint"><strong>Use this tutorial to solve issues with styles not loading in your templates.</strong></div>
+
+<p>After installing the ZOO your website stays blank, just because your CSS Style sheets and JavaScripts aren't loaded? This might be caused by an <em>internal server error 403</em>, while the webserver tries to access these files.</p>
+
+<p>This is due to incorrect file/folder permissions for the installed ZOO. The ZOO folders and the files and folders beneath it, need to be set to CHMOD 755. Also Joomlas <em>Cache</em> folder needs to be writable</p>
+
+<div class="box-info">Permissions are inherited from the parent folder. If you set the specific template folder (e.g. yoo_cloud) and all sub files/folders to the correct permission but the whole Joomla template folder has lower permissions it will not work. Best way is to alter the permissions of the top level folder. Sometimes Joomlas root directory has too low permissions and you wonder why it is not working...</div>
+
+<div class="box-warning">Always avoid 777 permissions. If your webserver has problems with the CHMOD 755, you can also try 775 and lastely 777 in this order. Try to use 777 only if you are having problems during installations. After successfull installation, change them back to 755.</div>
+<p>So how do you change the permissions for the files and folders? Here are two step-by-step guides.</p>
+
+<p>The first guide explains how to use your favorite FTP client such as the <em>FileZilla FTP Client</em>.  When using a FTP client, sometimes the ownership of the files/folders you changed the permissions for, changes to the user currently logged in via ftp. This can cause problems. Therefore there is a second solution, which uses eXtplorer, a Joomla! component.</p>
+
+<h2>Using your favorite FTP client such as FileZilla FTP Client.</h2>
+
+<ol class="bold">
+	<li>Download <a href="http://filezilla-project.org/" target="_blank">FileZilla FTP Client</a> and install it.</li>
+	<li>Use FileZilla FTP Client to login to your ftp account.</li>
+	<li>Right click on the template folder and click <em>File Attributes</em>. <img src="../../../_assets/images/permissions_01.png" alt="Permission Issue"/></li>
+	<li>In the <em>Change File Attributes</em> dialog, check the options as shown below or type <em>755</em>. Make sure the <em>Recurse into subdirectories</em> option is checked. Then hit the <em>OK</em> button. <img src="../../../_assets/images/permissions_02.png" alt="Permission Issue"/></li>
+</ol>
+</div>
+
+<div class="box-info">Tip to avoid some trouble: After applying new permissions some FTP clients require the file view to be refreshed. Otherwise the old permissions will continue to show...</div>
+
+<h2>For Joomla: Using eXtplorer component</h2>
+<ol class="bold">
+	<li>Download <a href="http://extensions.joomla.org/extensions/core-enhancements/file-management/2630?qh=YToxOntpOjA7czo5OiJleHRwbG9yZXIiO30%3D" target="_blank">eXtplorer</a> and install it. eXtplorer is a file manager. It allows you to edit, delete, copy, rename, archive and unpack files/directories directly on your server.</li>
+	<li>In the Joomla administration, go to the eXtplorer component and  navigate to the template folder. Check the templates folder.</li>
+	<li>Right click on the folder and choose <em>Change Permissions</em></li>
+	<li>Check the options as shown for the ftp client above. Make sure the <em>Recurse into subdirectories</em> option is checked. Then hit the <em>Save</em> button.</li>
+</ol>
+
+http://filezilla-project.org/
+http://extensions.joomla.org/extensions/core-enhancements/file-management/2630?qh=YToxOntpOjA7czo5OiJleHRwbG9yZXIiO30%3D

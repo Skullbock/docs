@@ -1,0 +1,64 @@
+<h1 class="title">Set up Frontend Submission</h1>
+
+<p>This tutorial will walk you through the process of setting up a Frontend Submission form.</p>
+
+
+<h2>Getting started</h2>
+
+<p>In this tutorial we'll show you how to set up the frontend submission for a <em>blog article</em>. Only authors should be allowed to post submissions or blog entries.</p>
+
+<p>Basically there are only three steps needed to accomplish this task:</p>
+
+<ul class="bullet">
+	<li>Assign submittable elements to the <em>submission</em> layout.</li>
+	<li>Create a submission in the ZOO administration of your application instance</li>
+	<li>Create a menu item of the ZOO –> Submission type</li>
+</ul>
+
+
+<h2>Getting into detail</h2>
+
+<h3>Step 1: Assigning submittable elements to the submission layout.</h3>
+
+<p>This step is basically creating the submission form itself. Choosing what information should be submitted and what information is inevitable. You can think of this step as the form building. Now for the blog entry. We'll need a <em>Subtitle</em>, </em>a Text</em>, a </em>Teaserimage</em>, an </em>Image</em> for the full view, the <em>socialbookmarks</em> element and finally some <em>related items</em> (articles).</p>
+
+<p>Go to the Zoo administration and choose the app manager (little gear icon in the menu). Then choose your app, in this case the blog app. Finally select one of the submission layouts for the article type and the default template. Read {doc: assign-elements-to-layout-positions text: this tutorial} on how to assign elements to layouts in general. You can only assign submittable elements. Each submittable element will have custom settings. Here you can define whether your element is required or not, or if an alternative label should be displayed. All the elements you have assigned here, will be submittable later on. Go ahead and assign the above mentioned elements.</p>
+
+<div class=info>Please note, some elements are only submittable in the trusted mode. For example you can only choose related items in trusted mode.</div>
+
+<div class=info>Please note, some elements are not submittable at all. Those elements are <em>Gallery, Joomla Module and Rating</em></div>
+
+<img src="../../../_assets/images/zoo/frontend_submission_01.png" alt="Set up Frontend Submission" title="Set up Frontend Submission" />
+
+
+<h3>Step 2: Create a submission in the ZOO administration of your app.</h3>
+
+<p>After having build the submission form in the previous step, we'll now define the submission itself. Head on over to your blog application instance and go to <em>submissions</em>. Here we'll create a new submission by clicking on the <em>new</em> button in the top right corner.</p>
+
+<img src="../../../_assets/images/zoo/frontend_submission_02.png" alt="Set up Frontend Submission" title="Set up Frontend Submission" />
+
+<p>There are a few settings we'll need to configure here. First of all, we'll give our submission a name, so that we'll be able to recognize it later on. Lets call it Blog. We'll then set it to be published and you can then choose if you would like element tooltips displayed for your users.</p>
+
+<p>Now we need to define the security settings. We only want authors to be able to submit blog posts. Therefore we choose the access level <em>special</em>. Because the do trust our authors to know what they are doing, we enable the trusted mode. Which lets them submit HTML code and also choose related articles.</p>
+
+<div class=info>Please note, that you should only enable the trusted mode if you do trust your users to not submit any malicious content.</div>
+
+<p>Now it's time to assign our freshly created submission form from step 1 to its type. We assign the submission to the type <em>Article</em>. We can also assign a default category, where the submissions should be assigned to. In our case this is not needed as our authors can assign the categories themselves, as they are trusted users.</p>
+
+<img src="../../../_assets/images/zoo/frontend_submission_03.png" alt="Set up Frontend Submission" title="Set up Frontend Submission" />
+
+<p>Alright, we have mastered the first two basic steps. The last thing we'll need to do is to create the menu item itself. </p>
+
+
+<h3>Step 3: Create a menu item of the Zoo » Submission / Submission type.</h3>
+
+<p>Okay, now we'll create a new menu item of the Submission type. Choose menuitem type Zoo and then choose the type submission. Give the menu item a name, for example <em>Add blog post</em>. Now choose the your blog application instance, then choose your submission Blog and finally the content type. In this case the article.</p>
+
+<img src="../../../_assets/images/zoo/frontend_submission_04.png" alt="Set up Frontend Submission" title="Set up Frontend Submission" />
+
+<p>That's it, you have set up the frontend submission.</p>
+
+
+<h2>The My Submissions view</h2>
+
+<p>Now it would nice if your authors there able to edit their blog posts, right? That's easily accomplished too. Create another menu item, but this time we'll choose Zoo » Submission / Mysubmissions. Here you'll have to select your blog application instance again and also choose your submission again. Now you have created created a link to an overview, where your authors can review and edit their submission. Nice.</p>

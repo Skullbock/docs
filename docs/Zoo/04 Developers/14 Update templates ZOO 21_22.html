@@ -1,0 +1,54 @@
+<h1 class="title">Update templates ZOO 2.1 » 2.2+</h1>
+
+<p>This short tutorial will show you how to update your custom templates from ZOO 2.1 to ZOO 2.2.</p>
+
+
+<h2>Updating the templates</h2>
+
+<p>There have been a few changes to methods of the <em>category</em> object in ZOO 2.2.</p>
+
+<p>Below are the two methods that have changed and that need to be replaced.</p>
+
+
+<table cellspacing="0" cellpadding="0" border="0" class="list" width="500px">
+	<thead>
+		<tr>
+			<th width="150">ZOO 2.1</th>
+			<th width="200"></th>
+			<th width="150">ZOO 2.2</th>
+		</tr>
+	</thead>
+	<tbody>
+	<tr class="odd">
+		<td align="center"><em>countItems()</em></td>
+		<td align="center">replace with »</td>
+		<td align="center"><em>totalItemCount()</em></td>
+	</tr>
+	<tr class="even">
+		<td align="center"><em>countChildrensItems()</em></td>
+		<td align="center">replace with »</td>
+		<td align="center"><em>childrenHaveItems()</em></td>
+	</tr>
+	</tbody>
+</table>
+
+<p>You can simply browse through the template files in your custom application or custom template and exchange the code. In the apps of the app bundle you usually find these lines of code in the files:</p>
+
+<ul class="bullet">
+	<li>\media\zoo\applications\YOURAPP\templates\YOURTEMPLATE\_category.php</li>
+	<li>\media\zoo\applications\YOURAPP\templates\YOURTEMPLATE\_categories.php</li>
+	<li>\media\zoo\applications\YOURAPP\templates\YOURTEMPLATE\frontpage.php</li>
+	<li>\media\zoo\applications\YOURAPP\templates\YOURTEMPLATE\category.php</li>
+</ul>
+
+<h2>Example</h2>
+
+<p>Code that looked like this:</p>
+
+<pre class="prettyprint"><code class="language-php">$item_count = ($this-&gt;params-&gt;get('template.show_sub_categories_item_count')) ? ' &lt;span&gt;('.$child-&gt;countItems().')&lt;/span&gt;' : '';
+</code></pre>
+
+<p>should now look like this:</p>
+
+<pre class="prettyprint"><code class="language-php">$item_count = ($this-&gt;params-&gt;get('template.show_sub_categories_item_count')) ? ' &lt;span&gt;('.$child-&gt;totalItemCount().')&lt;/span&gt;' : '';
+</code></pre>

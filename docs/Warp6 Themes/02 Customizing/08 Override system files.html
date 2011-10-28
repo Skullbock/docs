@@ -1,0 +1,54 @@
+<h1 class="title">Override system files</h1>
+
+<p>
+	This tutorial shows you how to override system files in Joomla and create custom pages in Wordpress.
+</p>
+
+
+<h2>Override Joomla system files</h2>
+
+<p>
+	All Joomla system files are located in <em>/warp/systems/joomla1.x/layouts</em>.
+</p>
+
+<p>
+	Lets say that you want to customize the output of the content component. To do that, just copy the folder com_content from 
+	<em>/warp/systems/joomla1.x/layouts</em> to <em>{TEMPLATEFOLDER}/layouts</em> and assign your changes. This makes sure that you won't lose any of 
+	your changes after an update of your template.
+</p>
+
+
+
+<h2>Wordpress custom pages</h2>
+
+<p>
+	
+	You can use different layouts for pages by creating files in your theme folder with a "page-" as prefix in the name.
+	<br /><br />
+	Examples:
+
+	<ul>
+		<li>page-<em>{id}</em>.php</li>
+		<li>page-<em>{slug}</em>.php</li>
+	</ul>
+</p>
+
+<p>
+	Lets say you want a custom layout for a page with the id 80:
+</p>
+
+<p>
+	
+	Create a file in your theme folder and name it page-80.php with the following content.
+
+<pre class="prettyprint"><code class="language-php">		// get warp
+		$warp = Warp::getInstance();
+
+		// load main template file, located in /layouts/template-80.php
+		echo $warp['template']->render('template-80');
+	</code></pre>
+</p>
+
+<p>
+	Then go to {YOURTHEME}/layouts and copy and rename template.php to template-80.php. You can now customize template-80.php as you like.
+</p>

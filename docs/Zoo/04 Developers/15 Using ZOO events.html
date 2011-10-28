@@ -1,0 +1,44 @@
+<h1 class="title">Using ZOO events</h1>
+
+<p>This short tutorial will show you how to use the ZOO events system.</p>
+
+
+<h2>Using the ZOO events system</h2>
+
+<p>Events are an easy way for third party developers to hook into the ZOO system. Right now we distribute a <em>ZOOevents</em> plugin with the ZOO, that actually shows you how to register for those events.</p>
+
+<p>Events are a neat concept to listen for actions in the ZOO and react to those actions. An action would be the rendering of an item e.g. You could listen to that event and eventually modify the output. This is much like Joomlas plugin system. There are quite a few events predefined in ZOO, have a look at ZOOs <em>config.php</em> to checkout all the events that are already defined. Also checkout the <em>events</em> folder in ZOOs administration folder. There are examples of every event and its parameters.</p>
+
+<p>Basically the workflow would be like this. You include ZOOs <em>config.php</em> to load the ZOO. As a second step, you retrieve the ZOO app. Then you can connect to ZOOs event dispatcher with any <a href=”http://www.php.net/manual/en/language.pseudo-types.php#language.types.callback”>PHP callback</a>.</p>
+
+<pre class="prettyprint"><code class="language-php">// load ZOO config
+require_once(JPATH_ADMINISTRATOR.'/components/com_zoo/config.php');
+
+// Get the ZOO App instance
+$zoo = App::getInstance('zoo');
+
+// register event
+$zoo-&amp;gt;event-&amp;gt;dispatcher-&amp;gt;connect('item:saved', array('MYCLASS', 'itemSaved'));
+</code></pre>
+
+<p>In this example we register to the <em>item:saved</em> event. As a parameter we pass the callback <em>MYCLASS::itemSaved</em>. That callback is being triggered whenever an item is saved.</p>
+
+<pre class="prettyprint"><code class="language-php">class MYCLASS {
+	
+	public 	function itemSaved($event) {
+
+		$item = $event-&gt;getSubject();
+		$new = $event['new'];
+
+		// do whatever you'd like to do
+
+	}
+	
+}
+</code></pre>
+
+<p>This is how our callback would look like. The item that was just saved can be retrieved with the events <em>getSubject</em> function. Further you can determine if the item is new or has been edited with checking <em>$event['new']</em>.</p>
+
+<div class="box-info">The <em>element:beforedisplay</em> event is a somewhat special case, because you can prevent the element from being rendered, by setting <em>$event['render']</em>  to <em>false</em>.</div>
+
+<p>You can react to any event. You just need to make sure, that you register to that event, before it is triggered. The ZOOevent plugin is a Joomla system plugin, that loads on every pageload. You can surely refine that part a bit, to suit your needs. That's it, you are good to go.</p>

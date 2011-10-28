@@ -1,0 +1,23 @@
+<h1 class="title">JS errors</h1>
+
+
+<h2>How to detect JS errors in general?</h2>
+
+<p>One way to detect Javascript errors on your page is to use the browser Firefox and an addon called <a href="http://getfirebug.com/errors" target="_blank">Firebug</a>. Firebug will give you quite a few details and hints at what is going wrong. This will really help with debugging the error. For more detailed instructions on how to use firebug.</p>
+
+
+<h2>JS conflicts</h2>
+
+<p>You need to make sure jQuery is only loaded once on your site. Otherwise you will get JavaScript conflicts and all effects may stop working like Accordion Menus, Google Maps, etc..</p>
+
+<p>Warp itself always loads the latest jQuery version. So what if you 3rd party extension also loads jQuery?</p>
+
+
+<h2>How to prevent multiple jQuery instances?</h2>
+
+<p>There is an ongoing discussion in the Joomla community on how to prevent those conflicts from happening. We have already taken steps and measures by implementing a widely accepted solution. We register through JApplication whether jQuery is loaded or not. In case the 3rd party extension loads the jQuery library you can use the following code snippet to prevent our ZOO extension, Widgetkit or Warp template from loading it twice:</p>
+
+<pre class="prettyprint"><code class="language-php">    JFactory::getApplication()->set('jquery', true);
+</code></pre>
+
+<p>So get in contact with the 3rd party extension provider to implement this.</p>

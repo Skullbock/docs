@@ -1,0 +1,38 @@
+<h1 class="title">Accessing element data</h1>
+
+<p>This short tutorial will show you how to access element data from anywhere in the ZOO extension.</p>
+
+
+<h2>Accessing element data</h2>
+
+<p>In general you can get an element from an item like this:</p>
+
+<pre class="prettyprint"><code class="language-php">$element = $item-&gt;getElement('ELEMENT_ID');
+</code></pre>
+
+<p>Now, if you don't have the item, but the item id. Do this:</p>
+
+<pre class="prettyprint"><code class="language-php">$item = $this-&gt;app-&gt;table-&gt;item-&gt;get('ITEM_ID');
+</code></pre>
+
+<p>Now if you don't have the element id. You can always iterate over all item elements by calling:</p>
+
+<pre class="prettyprint"><code class="language-php">foreach ($item-&gt;getElements() as $element) {
+	do_something_with_the_element($element);
+}
+</code></pre>
+
+<p>With the Element object, you can get and set values through its getter and setter functions.</p>
+
+<pre class="prettyprint"><code class="language-php">public function get($name, $default = null);
+public function set($name, $value);
+</code></pre>
+
+<p>If it is a repeatable element, iterate over the element itself:</p>
+
+<pre class="prettyprint"><code class="language-php">foreach ($element as $self) {
+	$data = $self-&gt;get('value');
+}
+</code></pre>
+
+<p>This should save some time, looking through the code!</p>

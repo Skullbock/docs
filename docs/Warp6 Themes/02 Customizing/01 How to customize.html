@@ -1,0 +1,43 @@
+<h1 class="title">How to customize</h1>
+
+<p>In this tutorial we want to show you a general workflow on how to customize a YOOtheme Warp template.</p>
+
+<h2>Basics</h2>
+
+<p>In general one can say that template customization is not an easy task. You don't necessarily need a profound knowledge of web programming, but you do need to know your way around html and css. Of course if that knowledge is supported by some javascript or php skills - depending on the task - that is even better.</p>
+
+<p>Here are some usefull resources to get you started:</p>
+
+	- buchlinks
+	- html
+	- css
+	- firebug
+	
+<p>What toolset is required always depends on the task at hand. It can take quite a while to get the grips of how things work, but it does pay off in the end. It might not work on your first try, but if you do invest some time, things will start to do what you expect them to do.</p>
+
+<p>The following tutorials of this chapter will need some of your time and, as stated above, require a bit of background knowledge.</p>
+
+
+<h2>Styles</h2>
+
+<p>Styles are variations of the default theme and are similar to the concept of child themes in Wordpress or sub themes in Drupal. A style defines a layer after the default theme and can inherit or override resources from the parent default theme. Warp walks along the file cascade looking for the resource until it is found.</p>
+
+<p>This gives you full flexibility to override any file of the default theme. Each style is placed in its own directory in the themes <em>/styles</em> folder and can provide its own custom HTML layouts, CSS, JavaScript and images. Let's take a look at this feature in the following example.</p>
+
+<h2>Example</h2>
+
+<div class="bfc-o">
+
+	<img class="align-right" src="../../../_assets/images/warp/how_to_customize_1.png" alt="Folder Structure" title="Folder Structure" />
+
+	<p>Let's create a new style we call <em>fresh</em>. To do so we have to create a new style folder <em>/styles/fresh</em>. That's it! We created a new style which looks the same like our default theme.</p>
+
+	<p>We can override the default layout <em>/layouts/template.php</em> file, by putting a new layout file right here <em>/styles/fresh/layouts/template.php</em>. Now you can start customizing it.</p>
+
+	<p>Next you can add your own CSS <em>/css/layout.css</em> file, by copying it to <em>/styles/fresh/css/layout.css</em>. The <em>fresh</em> style would now load it's own layout style sheet. But what if you only have one small modification? For example you just want to change one color. Do you have to copy the whole layout CSS from the default theme? No, just import the <em>/css/layout.css</em> by using <em>@import url(../../../css/layout.css);</em> and add your small modification. You have full control which CSS assets you want to include from the default theme, from the core framework or neither.</p>
+
+	<p>This way you can inherit or override any resource from the default theme like the StyleSheets, JavaScript module or system markup files.</p>
+
+</div>
+
+<p>Read more about the cascade in the following paragraph</p>

@@ -1,0 +1,44 @@
+<h1 class="title">Extend content parameters</h1>
+
+<p>This tutorial will walk you through the process of adding custom content parameters to apps, categories and items in the ZOO extension.</p>
+
+
+<h2>Getting started</h2>
+
+<p>All the content parameters are located in <em>/media/zoo/applications/APPLICATION/application.xml</em>.</p>
+
+<p>In general you can include any Joomla parameters types, like <em>text</em>, <em>textarea</em>, <em>list</em>, etc. Further you can also use any ZOO parameters, like the zooimage.</p>
+
+
+<h2>Getting into detail</h2>
+
+<p>A typical application.xml file might have the following params.</p>
+
+<pre class="prettyprint"><code class="language-xml">&lt;params group=&quot;application-content&quot;&gt;
+
+	&lt;param name=&quot;title&quot; type=&quot;text&quot; label=&quot;Title&quot; description=&quot;Set a frontpage title.&quot; /&gt;
+	&lt;param name=&quot;image&quot; type=&quot;zooimage&quot; label=&quot;Image&quot; description=&quot;Choose a frontpage image.&quot; /&gt;
+
+&lt;/params&gt;
+&lt;params group=&quot;category-content&quot;&gt;
+	&lt;param name=&quot;teaser_description&quot; type=&quot;textarea&quot; label=&quot;Teaser Description&quot; description=&quot;Set a teaser description for this category. It will be displayed in the parent category.&quot; /&gt;
+
+	&lt;param name=&quot;teaser_image&quot; type=&quot;zooimage&quot; label=&quot;Teaser Image&quot; description=&quot;Choose a teaser image for this category. It will be displayed in the parent category.&quot; /&gt;
+	&lt;param name=&quot;image&quot; type=&quot;zooimage&quot; label=&quot;Image&quot; description=&quot;Choose a category image.&quot; /&gt;
+
+&lt;/params&gt;
+&lt;params group=&quot;item-content&quot;&gt;
+&lt;/params&gt;
+</code></pre>
+
+<p>Notice that the params tag has an attribute called <em>group</em>. The value for content params ends with <em>-content</em>.</p>
+
+<p>Application content parameters will go into the <code>&lt;params group=&quot;application-content&quot;&gt;</code> tag.</p>
+
+<p>Category content parameters will go into the <code>&lt;params group=&quot;category-content&quot;&gt;</code> tag.</p>
+
+<p>Item content parameters will go into the <code>&lt;params group=&quot;item-content&quot;&gt;</code> tag.</p>
+
+<p>By adding parameters to them, you will be able to use them in your templates, or anywhere else throughout the code. Use the applications, categories or items method <code>getParams()</code> and then <code>get(content.PARAM_NAME)</code>. Notice the <em>content.</em> in front of the PARAM_NAME, it tells the parameter object where to look.</p>
+
+<p>For example: <code>$this->application->getParams()->get('content.title')</code></p>

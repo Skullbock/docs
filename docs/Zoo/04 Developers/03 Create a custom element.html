@@ -1,0 +1,114 @@
+<h1 class="title">Create a custom element</h1>
+
+<p>This tutorial will walk you through the process of creating a custom element for a type in your ZOO app.</p>
+
+
+<h2>Getting started</h2>
+
+<p>To get an impression of how elements work in general, have a look at the <em>media/zoo/elements/</em> folder. All of our elements are located there. Each element has its own folder and in each folder you'll find at least two files. The <em>ELEMENT.php</em> and the <em>ELEMENT.xml</em>.</p>
+
+<p>In the xml file you'll find the elements description and the elements parameters. The actual workflow is located in the corresponding php file.</p>
+
+
+<h2>Getting into detail</h2>
+
+<p>As with almost anything in the ZOO extension, custom modifications should be done in the <em>Applications</em> folder only. Therefore, if it is not already there, we need to create an elements folder <em>media/zoo/applications/APPLICATION/elements</em>.</p>
+
+<p>Next we need to create the actual element folder. Lets call our element <em>Address</em>. We will therefore create a folder like this: <em>media/zoo/applications/APPLICATION/elements/address/</em>.</p>
+
+
+<h4>The xml file</h4>
+
+<p>Now, we need to create the <em>media/zoo/applications/APPLICATION/elements/address/address.xml</em> file.</p>
+
+<pre class="prettyprint"><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;element type=&quot;address&quot; group=&quot;MY_GROUP&quot;&gt;
+	&lt;name&gt;Address&lt;/name&gt;
+	&lt;author&gt;John Doe&lt;/author&gt;
+	&lt;creationDate&gt;April 2010&lt;/creationDate&gt;
+	&lt;copyright&gt;THIS CAN PROBABLY BE OMITTED&lt;/copyright&gt;
+	&lt;authorEmail&gt;john @ doe.com&lt;/authorEmail&gt;
+	&lt;authorUrl&gt;http://www.johndoe.com&lt;/authorUrl&gt;
+	&lt;version&gt;1.0.0&lt;/version&gt;
+	&lt;description&gt;HTML address fields&lt;/description&gt;
+	&lt;params&gt;		
+	&lt;/params&gt;
+	&lt;params group=&quot;render&quot;&gt;
+	&lt;/params&gt;
+&lt;/element&gt;
+</code></pre>
+
+<p>After the xml declaration, the element metadata part starts. The element will have a <em>name</em>, <em>author</em>, <em>creation date</em>, etc. All of that is pretty self-explanatory. Important are the attributes of the element tag. <em>Type</em> needs to be the same as the element class in the php file and <em>group</em> will be used to group the elements in the edit elements screen.</p>
+
+<p>After the elements metadata the parameters are set. There are two kinds of parameters. The first are the element configuration parameters.</p>
+
+<p>The second <em>params</em> tag has the attribute <em>group</em> with the value <em>render</em>. Here you can choose display options.</p>
+
+<p>In general you can include any Joomla parameters, like <em>text</em>, <em>textarea</em>, <em>list</em>, etc.</p>
+
+
+<h4>The php file</h4>
+
+<p>To give the element an actual workflow, we will create this file: <em>media/zoo/applications/APPLICATION/elements/address/address.php</em>.</p>
+
+<p>We will need to create a class, that subclasses the Element class:</p>
+
+<pre class="prettyprint"><code class="language-php">class ElementAddress extends Element {
+	public function edit() {
+	}
+}
+</code></pre>
+
+<p>Notice that the name of the class needs to consist of <em>Element</em> and the element type. Additionally the class needs to overwrite the base classes abstract <code>edit()</code> function.</p>
+
+<p>Actually this is it. You are good to go. Okay, this element wouldn't be of much use to anyone. We'll at least need to provide some editing and some rendering functionality.</p>
+
+<p>For simplicity our address element will have three text fields: Street, ZIP code and Country.</p>
+
+<p>Let's give the user the possibility to input those values, by altering the <em>edit</em> function.</p>
+
+<pre class="prettyprint"><code class="language-php">public function edit() {
+	$html = array();
+	$html[] = $this->app->html->_('element.editrow', JText::_('Street'), 	$this->app->html->_('control.text', $this->getControlName('street'), $this-&gt;get('street'), 'size=&quot;60&quot; maxlength=&quot;255&quot;'));
+	$html[] = $this->app->html->_('element.editrow', JText::_('ZIP'), $this->app->html->_('control.text', $this->getControlName('zip'), $this-&gt;get('zip'), 'size=&quot;60&quot; maxlength=&quot;255&quot;'));
+	$html[] = $this->app->html->_('element.editrow', JText::_('Country'), $this->app->html->_('control.text', $this->getControlName('country'), $this-&gt;get('country'), 'size=&quot;60&quot; maxlength=&quot;255&quot;'));
+
+	return implode(&quot;\n&quot;, $html);
+}
+</code></pre>
+
+<p>The <em>edit</em> function will output the three text fields in the item edit. It uses the <code>element.editrow</code> function to generate an edit row, with a label and a textfield. And it uses the <code>control.text</code> function to output this textfield.</p>
+
+<p>To get the current data value, we use the elements <em>get</em> method: <code>$this-&gt;get(DATA_KEY);</code>.</p>
+
+<p>For an item to be actually rendered, we will have to overwrite the base classes <code>render</code> function.</p>
+
+<pre class="prettyprint"><code class="language-php">public function render(AppData $params) {
+	return $this-&gt;get('street') . ', ' . $this-&gt;get('zip') . ', ' .$this-&gt;get('country');
+}
+</code></pre>
+
+<p>The <em>$params</em> AppData object contains the display options, we specified in the elements xml file. You can access its values by its <em>get</em> method.</p>
+
+</p>This will output the three elements values separated by commas. Notice we use the same method of retrieving the elements data, as in the above <em>edit</em> function.</p>
+
+</p>Leaving the function as it is wouldn't output any data in the frontend though. We need to overwrite the <em>hasValue</em> function, to tell the renderer, if the element has a value or not.</p>
+
+<pre class="prettyprint"><code class="language-php">public function hasValue(AppData $params = null) {
+	$street = $this-&gt;get('street');
+	$zip = $this-&gt;get('zip');
+	$country = $this-&gt;get('country');
+	return !empty($street) ||!empty($zip) ||($country);
+}
+</code></pre>
+
+</p>If any of the three values is nonempty, the element is considered to have a value, and therefore will be rendered.</p>
+
+</p>That's it, we have constructed a very simple custom element.</p>
+
+
+<h2>Conclusion</h2>
+
+</p>Please have in mind, that this tutorial is only an example of how to write the code. You would probably build the address fields by adding text elements to the type, but it demonstrates the element handling quite nicely.</p>
+
+<p>The best way to go about creating your custom elements, is to have a look at the existing elements and learn from them.</p>

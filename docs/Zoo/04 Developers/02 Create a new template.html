@@ -1,0 +1,114 @@
+<h1 class="title">Create a new template</h1>
+
+<p>This tutorial will walk you through the process of creating a new template for an application in the ZOO extension.</p>
+
+
+<h2>Getting started</h2>
+
+<p>All the templates are located in <em>/media/zoo/applications/APPLICATION/templates/TEMPLATE/</em>.</p>
+
+<p>The templates meta data and the template parameters can be found in the <em>template.xml</em> file. The actual template files for the views are called <em>item.php</em>, <em>category.php</em>, <em>frontpage.php</em>, <em>tag.php</em> and <em>alphaindex.php</em>.</p>
+
+<p>Most templates also have a folder called <em>renderer</em>. In here you will find the item layouts, which tell the item how to render itself. Click {doc: create-a-new-layout-with-positions text: here} to see how you create a new item layout. Also the custom element renderer can be found here. Click {doc: create-a-new-element-renderer text: here} for a description on how to create a new element renderer for the template.</p>
+
+<p>Have a look at existing templates to get an impression of the templates folder structure.</p>
+
+
+<h2>Getting into detail</h2>
+
+<p>Lets create a <em>demo</em> template.</p>
+
+<p>Create this folder: <em>/media/zoo/applications/APPLICATION/templates/demo/</em></p>
+
+<p>Next we will create a template.xml file:</p>
+
+<pre class="prettyprint"><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;template&gt;
+
+	&lt;name&gt;Demo&lt;/name&gt;
+	&lt;version&gt;2.0.0&lt;/version&gt;
+	&lt;creationDate&gt;April 2010&lt;/creationDate&gt;
+	&lt;author&gt;John Doe&lt;/author&gt;
+
+	&lt;authorEmail&gt;john @ doe.com&lt;/authorEmail&gt;
+	&lt;authorUrl&gt;www.johndoe.com&lt;/authorUrl&gt;
+    &lt;copyright&gt;YOUR COPYRIGHT DISCLAIMER&lt;/copyright&gt;
+    &lt;license&gt;&lt;/license&gt;
+
+	&lt;description&gt;This is my demo template&lt;/description&gt;
+	&lt;params group=&quot;category&quot;&gt;&lt;/params&gt;
+	&lt;params group=&quot;item&quot;&gt;
+	&lt;/params&gt;
+
+&lt;/template&gt;
+</code></pre>
+
+<p>To learn about the parameters, click {doc: extend-content-parameters text: here}.</p>
+
+<p>After that, we create the template files for the views: item view - <em>item.php</em>, category view - <em>category.php</em>, frontpage view - <em>frontpage.php</em>, tag view - <em>tag.php</em> and alphaindex view - <em>alphaindex.php</em>.</p>
+
+<p>Next you will have to write the template code itself. Each view will have a custom set of variables, already filled with values.</p>
+
+
+<h3>all views</h3>
+
+<ul class="bullet">
+	<li><code>$this</code> - This is the current <em>View</em> object.</em>.</li>
+	<li><code>$this->application</code> - This is the current <em>Application</em> object.</em>.</li>
+	<li><code>$this->template</code> - This is the <em>Template</em> object.</li>
+	<li><code>$this->params</code> - This is the <em>Params</em> object, containing the site parameters.</li>
+</ul>
+
+
+<h3>item.php</h3>
+
+<ul class="bullet">
+	<li><code>$this->item</code> - This is the <em>Item</em> object.</li>
+	<li><code>$this->renderer</code> - This is the <em>Renderer</em> object, needed to render the item.</li>
+</ul>
+
+
+<h3>category.php</h3>
+
+<ul class="bullet">
+	<li><code>$this->category</code> - This is the <em>Category</em> object.</li>		
+	<li><code>$this->items</code> - This is an array containing <em>Item</em> objects, that are published in this category.</li>
+</ul>
+
+
+<h3>frontpage.php</h3>
+
+<ul class="bullet">
+	<li><code>$this->category</code> - This is the <em>Category</em> object, containing the root category.</li>		
+	<li><code>$this->items</code> - This is an array containing <em>Item</em> objects, that are published on the frontpage.</li>
+</ul>
+
+
+<h3>tag.php</h3>
+
+<ul class="bullet">
+	<li><code>$this->tag</code> - This is the <em>Tag</em> object.</li>		
+	<li><code>$this->items</code> - This is an array containing <em>Item</em> objects, that are tagged with the selected tag.</li>
+</ul>
+
+
+<h3>alphaindex.php</h3>
+
+<ul class="bullet">
+	<li><code>$this->alpha_char</code> - This is a string containing the selected alpha char.</li>			
+	<li><code>$this->selected_categories</code> - This is an array containing <em>Category</em> objects, containing the selected categories.</li>		
+	<li><code>$this->items</code> - This is an array containing selected <em>Item</em> objects.</li>
+</ul>
+
+<p>These variables provide you with all the information, you need to output a nice template.</p>
+
+<p>To render an item in item view, you may use the item renderer. The call would look something like this:</p>
+
+<pre class="prettyprint"><code class="language-php">$this-&gt;renderer-&gt;render('item.full', array('view' =&gt; $this, 'item' =&gt; $this-&gt;item);
+</code></pre>
+
+<p>The first parameter for the <em>render</em> function is the layout. Click {doc: create-a-new-layout-with-positions text: here} to learn more about creating a new layout. The second parameter is an array containing arguments for the <em>render</em> function. We need to provide the view and the item.</p>
+
+<h2>Conclusion</h2>
+
+<p>This tutorial walked you through the process of creating a new template. As with everything, learn from what is already provided and build on that :-)</p>

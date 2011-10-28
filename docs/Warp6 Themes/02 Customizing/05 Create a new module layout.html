@@ -1,0 +1,81 @@
+<h1 class="title">Create a new module layout</h1>
+
+<p>This tutorial will take a closer look at the module layouts, what they are and how to create a new one.</p>
+
+<h2>Module Layouts</h2>
+
+<p>Module Layouts define the alignment and proportions of a set of modules in a specific position. For example they can be vertical or horizontal aligned.</p>
+
+<h2>Location</h2>
+
+<p>You can find the default module layouts provided by Warp in following folder: <em>THEME_NAME/layouts/modules/layouts/</em></p>
+
+<h2>Default Layouts</h2>
+
+<p>By default Warp offers 3 different module layouts.</p>
+  
+<h3>equal.php</h3>
+
+<p>Every module has the same dimension and they are displayed horizontal, next to each other. We have added support for up to 6 modules. You can add more of course.</p>
+  
+
+<p>Example, 4 modules with the same size (100 divided by 4 = 25)</p>
+
+<pre class="prettyprint"><code class="language-php">case 4:
+  printf('&lt;div class=&quot;grid-box width25 grid-h&quot;&gt;%s&lt;/div&gt;', $modules[0]);
+  printf('&lt;div class=&quot;grid-box width25 grid-h&quot;&gt;%s&lt;/div&gt;', $modules[1]);
+  printf('&lt;div class=&quot;grid-box width25 grid-h&quot;&gt;%s&lt;/div&gt;', $modules[2]);
+  printf('&lt;div class=&quot;grid-box width25 grid-h&quot;&gt;%s&lt;/div&gt;', $modules[3]);
+  break;
+</code></pre>
+
+<h3>stack.php</h3>
+
+<p>All modules have a full width and will displayed vertical, one below the other.</p>
+  
+
+<p>Example:</p>
+<pre class="prettyprint"><code class="language-php">  printf('&lt;div class=&quot;grid-box width100 grid-v&quot;&gt;%s&lt;/div&gt;', $module);
+</code></pre>
+
+<h3>double.php</h3>
+
+<p>The double layout has different module proportions. For example when you have 3 modules, the first one has double the size than the other two.</p>
+  
+<p>Example: 3 modules, first one has double size</p>
+
+<pre class="prettyprint"><code class="language-php">case 3:
+  printf('&lt;div class=&quot;grid-box width50 grid-h&quot;&gt;%s&lt;/div&gt;', $modules[0]);
+  printf('&lt;div class=&quot;grid-box width25 grid-h&quot;&gt;%s&lt;/div&gt;', $modules[1]);
+  printf('&lt;div class=&quot;grid-box width25 grid-h&quot;&gt;%s&lt;/div&gt;', $modules[2]);
+  break;
+</code></pre>
+
+<h2>How to set a module layouts in a special position</h2>
+
+<p>In our Warp Administration Interface, you are able to give module positions different module layouts. 
+  Just click on "Profiles", scroll down to the "Layout Setting" and select the module layout you need for the different positions.</p>
+
+<h2>How to add a new module layout?</h2>
+
+<p>To create a new module layout add a new file to THEME_NAME/layouts/modules/layouts/ or if you are using a theme style to <em>THEME_NAME/styles/YOUR_STYLE/layouts/modules/layouts/</em></p>
+
+<p>Best way is to copy an existing module layout and modify it. For example copy THEME_NAME/warp/layouts/modules/layouts/double.php to THEME_NAME/layouts/modules/layouts/double.php . This new and modified module layout will override the default one.</p>
+
+<p>Last but not least if you created a new module layout you have to add it to the theme parameters so it can be selected in the theme administration. To do so open config.xml and look for following code:</p>
+
+<pre class="prettyprint"><code class="language-xml">  &lt;field name=&quot;top-a&quot; type=&quot;list&quot; default=&quot;equal&quot; label=&quot;Top A Layout&quot; description=&quot;Select a grid layout for this module position.&quot;&gt;
+     &lt;option value=&quot;equal&quot;&gt;Equal&lt;/option&gt;
+     &lt;option value=&quot;stack&quot;&gt;Stack&lt;/option&gt;
+     &lt;option value=&quot;double&quot;&gt;Double&lt;/option&gt;
+     &lt;option value=&quot;custom01&quot;&gt;Custom 01&lt;/option&gt;
+  &lt;/field&gt;
+
+  &lt;field name=&quot;top-b&quot; type=&quot;list&quot; default=&quot;equal&quot; label=&quot;Top B Layout&quot; description=&quot;Select a grid layout for this module position.&quot;&gt;
+     &lt;option value=&quot;equal&quot;&gt;Equal&lt;/option&gt;
+     &lt;option value=&quot;stack&quot;&gt;Stack&lt;/option&gt;
+     &lt;option value=&quot;double&quot;&gt;Double&lt;/option&gt;
+     &lt;option value=&quot;custom01&quot;&gt;Custom 01&lt;/option&gt;
+  &lt;/field&gt;
+  ...
+</code></pre>

@@ -1,0 +1,56 @@
+<h1 class="title">Set up the Joomla modules</h1>
+
+<p>This tutorial shows you how to set up the module system in your Warp based YOOtheme template.</p>
+
+
+<h2>Create a module</h2>
+
+<p>After installation of the template click on <em>Extensions » Module Manager » New</em> in the administration menu on top. Select a module and configure it on the following screen. Publish it to one of the templates module positions.</p>
+
+<p>For more detailed instructions on how to use modules see the <a href="http://docs.joomla.org/Module" target="_blank">official Joomla Documentation</a>.</p>
+
+
+<h2>Styles/Icons/Badges</h2>
+
+<p>Modules can be displayed in different styles with additional icons and badges. The <em>/layouts/module.php</em> takes care of displaying all these module variations.</p>
+
+<p>As Joomla doesn't provide flexible parameters for modules we make use of the <em>Module Class Suffix</em> to pass parameters to style our modules. We use the following pattern to pass the parameters: <em>KEY-VALUE</em>. For example, if you use <em>color-orange</em> you can access the variable <em>color</em> which has the value <em>orange</em>. The Warp framework uses four pre-defined module parameters: style, color, badge and icon. But you can also add your own parameters. For example: <em>myparameter-myvalue</em>. Via the <em>Module Class Suffix</em>, you can pass as many variables as you want ... you just separate them with a space. For example: <em>style-rounded color-black</em>. All these variables can be accessed in the modules.php file (html/modules.php) which controls all module handling and loading.</p>
+
+
+<h3>Pre-defined Module Parameters</h3>
+
+<p>The available values for the module parameters vary depending on which template you are using. Check out the <em>Module Variations</em> page of your YOOtheme template to find out which values are available.</p>
+
+<ul>
+	<li><strong>style:</strong> Defines which module template and which CSS gets loaded.</li>
+	<li><strong>color:</strong> Defines which color variation gets loaded (only works if a module style comes with color variations.)</li>
+	<li><strong>badge:</strong> Adds a badge to your module, usually in the top right corner.</li>
+	<li><strong>icon:</strong> Adds an icon to the title of your module.</li>
+</ul>
+
+
+<h2>Add subtitles to module headers</h2>
+
+<div class="bfc-o">
+	<img class="align-right" src="../../../_assets/images/warp/add_module_subtitles_02.png" alt="Add sublines to menu items and module headers" title="Add sublines to menu items and module headers" />
+	
+	<p>A subtitle can be added to a module title by simply placing your subtitle text behind two &quot;|&quot; (pipe) characters.</p>
+	
+	<p>Navigate to <em>Extensions » Module Manager</em> and add the subtitle text behind two &quot;|&quot; characters in the title property of your module.</p>
+</div>
+
+
+<h2>Publish a module in the menu</h2>
+
+	<p>Publish your module on the position <em>menu</em>. Having both your main menu and your module published on the <em>menu</em> position, it should look like this in your backend:</p>
+
+<div class="bfc-o">
+	<img class="align-left" src="../../../_assets/images/warp/module_menu_position.png" alt="Module Manager showing modules on position &quot;menu&quot;" title="Module Manager showing modules on position &quot;menu&quot;" />	
+</div>	
+
+<h3>Set the width of the module in the menu</h3>
+
+<div class="bfc-o">
+	<img class="align-right" src="../../../_assets/images/warp/dropdown_module_width_01.png" alt="Set the width of a module on the menu position" title="Set the width of a module on the menu position"/>
+	<p>In your Joomla backend, navigate to <em>Extensions » Module Manager</em>. Click on the module you have published on the menu position. In the parameters to the right you have to add the width to the module class suffix, e.g. <em>dropdownwidth-255</em>. Now the module in your menu will have this width.</p>
+</div>

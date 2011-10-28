@@ -1,0 +1,62 @@
+<h1 class="title">Extend the alpha index</h1>
+
+<p>This tutorial will walk you through the process of extending the alpha index of a ZOO app.</p>
+
+
+<h2>Getting started</h2>
+
+<div class="box-info">Items that are not categorized, will not show in the alpha index.</div>
+
+<p>In general the alpha index letters are defined in /media/zoo/applications/APPLICATION/config/alphaindex.xml</em>.</p>
+
+
+<h2>Getting into detail</h2>
+
+<p>A typical alphaindex.xml file might look like this.</p>
+
+<pre class="prettyprint"><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+
+&lt;alphaindex other=&quot;#&quot;&gt;
+	&lt;option&gt;a&lt;/option&gt;
+	&lt;option&gt;b&lt;/option&gt;
+	&lt;option&gt;c&lt;/option&gt;
+
+	&lt;option&gt;d&lt;/option&gt;
+	&lt;option&gt;e&lt;/option&gt;
+	&lt;option&gt;f&lt;/option&gt;
+	&lt;option&gt;g&lt;/option&gt;
+
+	&lt;option&gt;h&lt;/option&gt;
+	&lt;option&gt;i&lt;/option&gt;
+	&lt;option&gt;j&lt;/option&gt;
+	&lt;option&gt;k&lt;/option&gt;
+
+	&lt;option&gt;l&lt;/option&gt;
+	&lt;option&gt;m&lt;/option&gt;
+	&lt;option&gt;n&lt;/option&gt;
+	&lt;option&gt;o&lt;/option&gt;
+
+	&lt;option&gt;p&lt;/option&gt;
+	&lt;option&gt;q&lt;/option&gt;
+	&lt;option&gt;r&lt;/option&gt;
+	&lt;option&gt;s&lt;/option&gt;
+
+	&lt;option&gt;t&lt;/option&gt;
+	&lt;option&gt;u&lt;/option&gt;
+	&lt;option&gt;v&lt;/option&gt;
+	&lt;option&gt;w&lt;/option&gt;
+
+	&lt;option&gt;x&lt;/option&gt;
+	&lt;option&gt;y&lt;/option&gt;
+	&lt;option&gt;z&lt;/option&gt;
+	&lt;option&gt;#&lt;/option&gt;
+
+	&lt;option value=&quot;other&quot;&gt;#&lt;/option&gt;
+&lt;/alphaindex&gt;
+</code></pre>
+
+<p>You may add, modify, delete any letters you like. The <em>other</em> attribute defines a group, that will display all characters not found in the <em>options</em> list.</p>
+
+<p>You may also define a value in the option. It will be used as alias. This is needed for special characters like "German Umlaute" for example.</p>
+
+<div class="box-warning">The Blog Application and the Page Application are not supporting alpha index.</div>

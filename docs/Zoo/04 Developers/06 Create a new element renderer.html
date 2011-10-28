@@ -1,0 +1,37 @@
+<h1 class="title">Create a new element renderer</h1>
+
+<p>This tutorial will walk you through the process of creating a new element renderer for a template in the ZOO extension.</p>
+
+
+<h2>Getting started</h2>
+
+<p>To get an impression of how the element renderer work, go to <em>/components/com_zoo/renderer/</em>. Within this folder there are several files that contain the standard element renderers.</p>
+
+<p>If you create a renderer and put it into the applications template folder, as in the example below. It will override any default renderer with the same name.</p>
+
+
+<h2>Getting into detail</h2>
+
+<p>Creating your own renderer for a template is pretty straight forward. Lets create a renderer called <em>demo</em>. Go to <em>/media/zoo/applications/APPLICATION/templates/TEMPLATE/renderer/</em> and create a folder called <em>elements</em>. In here we create a <em>demo.php</em> file.</p>
+
+<p>In the <em>demo.php</em> file we need to tell the element how it has to render itself.</p>
+
+<pre class="prettyprint"><code class="language-php">// create label
+$label = '';
+if (isset($params['showlabel']) &amp;&amp; $params['showlabel']) {
+	$label .= '&lt;h3&gt;';
+	$label .= ($params['altlabel']) ? $params['altlabel'] : $element-&gt;getConfig()-&gt;get('name');
+	$label .= '&lt;/h3&gt;';
+}
+
+// create class attribute
+$class = 'element element-'.$element-&gt;getElementType().' '.($params['first'] ? ' first' : '').($params['last'] ? ' last' : '');
+
+?&gt;
+
+&lt;?php echo $label.$element-&gt;render($params); ?&gt;
+</code></pre>
+
+<p>The first part of the script will echo the label if the parameter is set to true, the second part will render the element itself. In the element renderer you will be provided with the <em>$params</em> array. These are the elements display options.</p>
+
+<p>The demo element renderer doesn't do much, except for rendering the element. But feel free to customize the elements output as needed.</p>

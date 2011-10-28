@@ -1,0 +1,56 @@
+<h1 class="title">Download Element</h1>
+
+<p>In this tutorial you learn how to configure a download element with its specific values to use it in the ZOO extension.</p>
+
+<p>How you create an element like this, we show you in {doc: create-new-types text: this tutorial}.</p>
+
+
+<h2>1. Configuration</h2>
+
+<div class="bfc-o">
+	<img class="align-right" src="../../../_assets/images/zoo/element_download.png" alt="Parameter settings" title="Parameter settings">
+
+	<p>Here is the description of the different values:</p>
+
+	<p>Name: Type in the name for this element which will be used later on, for example in the item creation view or as label in the frontend. With the name you also can identify the element, when you assign it to a template position.</p>
+
+	<p>Description: The description will show up as a tooltip in the item creation view</p>
+
+	<p>Source  Directory: Type in the source directory from which the files can be selected later when creating an item. It includes all subdirectories.</p>
+
+	<p>Download Mode: The download mode selector let you choose between three options: <br/>
+
+			Direct: This mode uses the path and name of the file as link.<br/>
+			Attachment: This mode generates a link which calls the files. In combination with a .htaccess file you will be able to create a fully protected link.<br/>
+			Protected: This mode is the same as Attachment but will additionally create an hash phrase that expires after 24 hours. The advantage of this method is that the link to your download file will change every 24 hours. So its impossible to direct link to your downloads from other websites.</p>
+
+	<p>Legal extensions: Type in comma separated extensions which can be uploaded during a submission.</p>
+
+	<p>Upload Directory: The destination directory where images are stored after submission.</p>
+
+	<p>Max upload size (KB): Restrict the max. filesize of the file for submission.</p>
+</div>
+
+
+<h2>2. Element Assignment</h2>
+
+<div class="bfc-o">
+	<img class="align-right" src="../../../_assets/images/zoo/element_download_2.png" alt="Parameter settings" title="Parameter settings">
+
+	<p>Every element has to be assigned to a template position to show up for the visitors in the frontend of the site. See {doc: assign-elements-to-layout-positions text: this tutorial} how to assign elements to the template positions.</p>
+
+	<p>You can set whether the label is shown in the frontend or not. If you choose <em>Yes</em> the name of the element (see previous step) is used for it. If you do not want to use the elements name as label you can type in an alternative. Of course the <em>Show Label</em> option have to be enabled to show the alternative label.</p>
+
+	<p>With the Display option, you have different possibilities. For example you can choose, whether the download link is shown as an image, a button or just text and you can choose to display other usefull information of the download file like the file size, a hit counter or the download limit.</p>
+
+	<p>Download Name: The download name sets the linked text to your downloadable file when the element is rendered in the template. You are able to put in the placeholder {filename} which automatically paste in the filename of the file on your site.</p>
+</div>
+
+
+<h2>3. Item Creation</h2>
+
+<div class="bfc-o">
+	<img class="border align-right" src="../../../_assets/images/zoo/element_download_3.png" alt="Parameter settings" title="Parameter settings">
+
+	<p>This is how the element looks when you create an item. See {doc: create-and-manage-items text: this tutorial} for creating an item. Choose the file in the dropdown field and type in a number as download limit after clicking on <em>Show options</em>. After the download limit is reached the visitors can not download it anymore. Leave this field blank if you do not want to limit the downloads. By clicking on <em>Reset</em> you can reset the download hit counter.</p>
+</div>
