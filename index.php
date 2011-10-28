@@ -9,9 +9,9 @@ if (isset($_REQUEST['doc']) && !empty($_REQUEST['doc'])) {
 	if (($fullpath = realpath($doc)) && file_exists($fullpath) && stripos($fullpath, $dir, 0) === 0) {
 
 		echo '<script type="text/javascript" src="libraries/jquery/jquery.js"></script>';
-		echo '<link href="_assets/js/prettify/prettify.css" type="text/css" rel="stylesheet" />';
-		echo '<script type="text/javascript" src="_assets/js/prettify/prettify.js"></script>';
-		echo '<link rel="stylesheet" href="_assets/css/styles.css">';
+		echo '<link href="assets/js/prettify/prettify.css" type="text/css" rel="stylesheet" />';
+		echo '<script type="text/javascript" src="assets/js/prettify/prettify.js"></script>';
+		echo '<link rel="stylesheet" href="assets/css/styles.css">';
 		echo '<div class="box box-text documentation">';
 		$output = file_get_contents($fullpath);
 		$output = preg_replace('#src="\.\.\/\.\.\/\.\.\/#', 'src="', $output);
