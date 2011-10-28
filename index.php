@@ -55,4 +55,6 @@ if (isset($_REQUEST['doc']) && !empty($_REQUEST['doc'])) {
 
 	</ul>
 
-<?php } ?>
+<?php 
+
+}
