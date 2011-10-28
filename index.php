@@ -1,6 +1,6 @@
 <?php
 
-$dir      = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'docs';
+$dir = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'docs';
 
 if (isset($_REQUEST['doc']) && !empty($_REQUEST['doc'])) {
 
@@ -55,4 +55,6 @@ if (isset($_REQUEST['doc']) && !empty($_REQUEST['doc'])) {
 
 	</ul>
 
-<?php } ?>
+<?php 
+
+}
